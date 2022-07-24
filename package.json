@@ -1,0 +1,35 @@
+{
+  "name": "shopify-email-notification",
+  "version": "0.0.1",
+  "description": "shopify-email-notification is a template repository for email notifications.",
+  "author": "Kazuki Yonemoto (https://dev.to/tim_yone)",
+  "license": "MIT",
+  "scripts": {
+    "admin": "FLAG=admin ts-node opener",
+    "orders": "npm-run-all --parallel orders:*",
+    "orders:confirmation": "FLAG=order_confirmation ts-node opener",
+    "orders:edited": "FLAG=order_edited ts-node opener",
+    "orders:invoice": "FLAG=order_invoice ts-node opener",
+    "orders:cancelled": "FLAG=order_cancelled ts-node opener",
+    "orders:refundNotification": "FLAG=refund_notification ts-node opener",
+    "orders:draftOrderInvoice": "FLAG=draft_order_invoice ts-node opener",
+    "orders:buyOnline": "FLAG=buy_online ts-node opener",
+    "orders:abandonedCheckoutNotification": "FLAG=abandoned_checkout_notification ts-node opener",
+    "orders:posExchangeReceipt": "FLAG=pos_exchange_receipt ts-node opener",
+    "orders:posExchangeV2Receipt": "FLAG=pos_exchange_v2_receipt ts-node opener",
+    "orders:giftCardNotification": "FLAG=gift_card_notification ts-node opener",
+    "orders:failedPaymentProcessing": "FLAG=failed_payment_processing ts-node opener",
+    "orders:pendingPaymentFailure": "FLAG=pending_payment_failure ts-node opener",
+    "orders:pendingPaymentSuccess": "FLAG=pending_payment_success ts-node opener",
+    "postInstall": "typesync"
+  },
+  "devDependencies": {
+    "@types/opener": "^1.4.0",
+    "dotenv": "^16.0.1",
+    "npm-run-all": "^4.1.5",
+    "opener": "^1.5.2",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.7.4",
+    "typesync": "^0.9.2"
+  }
+}
