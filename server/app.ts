@@ -15,5 +15,6 @@ app.set('view engine', 'liquid');
 
 // Define routes
 app.use('/', router)
+app.use(express.static('public'));
 
 export {app};
