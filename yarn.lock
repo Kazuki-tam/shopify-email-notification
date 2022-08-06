@@ -102,6 +102,22 @@
     "@types/connect" "*"
     "@types/node" "*"
 
+"@types/browser-sync@^3001.0.28-alpha":
+  version "3001.0.28-alpha"
+  resolved "https://registry.yarnpkg.com/@types/browser-sync/-/browser-sync-3001.0.28-alpha.tgz#7f4c115b6a246d3bea337d93f5148dc996cfbe99"
+  integrity sha512-urwBJG6jFyiYahFHclsrrGfwE3E20065qEXy1I5xPV6E3rzrtT70Yu3oTH6mHNFberu90VJ4Z+Y8YDNZusPXkQ==
+  dependencies:
+    "@types/chokidar" "1.4.27-alpha"
+    "@types/micromatch" "2.3.27-alpha"
+    "@types/node" "4.0.27-alpha"
+
+"@types/chokidar@1.4.27-alpha":
+  version "1.4.27-alpha"
+  resolved "https://registry.yarnpkg.com/@types/chokidar/-/chokidar-1.4.27-alpha.tgz#f2d856e286359f7bcd3372415578e97a1f46aa60"
+  integrity sha512-MjCSbqpaTHNyVB27zNsPsr1oPZM1UPwdmBUjJF6L9vo5tHXLMxTv1fShfCuHnYfSGYmpttT4YRfnF1rLHQ0n9w==
+  dependencies:
+    "@types/node" "4.0.27-alpha"
+
 "@types/component-emitter@^1.2.10":
   version "1.2.11"
   resolved "https://registry.yarnpkg.com/@types/component-emitter/-/component-emitter-1.2.11.tgz#50d47d42b347253817a39709fef03ce66a108506"
@@ -143,6 +159,13 @@
     "@types/qs" "*"
     "@types/serve-static" "*"
 
+"@types/micromatch@2.3.27-alpha":
+  version "2.3.27-alpha"
+  resolved "https://registry.yarnpkg.com/@types/micromatch/-/micromatch-2.3.27-alpha.tgz#d5300c181c2b053cd5ed04e7fe4334e33e265ce5"
+  integrity sha512-fnu2/hCikX880SxwEpeKBH1lFRqzWOZs++a/oCJfCctYb2oiDp0HMLx6tHjm8oGQXfx3dHRyQ0dxrFDAf/C9gw==
+  dependencies:
+    "@types/parse-glob" "3.0.27-alpha"
+
 "@types/mime@*":
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/@types/mime/-/mime-3.0.0.tgz#e9a9903894405c6a6551f1774df4e64d9804d69c"
@@ -152,6 +175,11 @@
   version "18.0.6"
   resolved "https://registry.npmjs.org/@types/node/-/node-18.0.6.tgz"
   integrity sha512-/xUq6H2aQm261exT6iZTMifUySEt4GR5KX8eYyY+C4MSNPqSh9oNIP7tz2GLKTlFaiBbgZNxffoR3CVRG+cljw==
+
+"@types/node@4.0.27-alpha":
+  version "4.0.27-alpha"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-4.0.27-alpha.tgz#382e02d2a6f69bf641df015658f8933c4048837b"
+  integrity sha512-amCWm73gEksfw35ZMRdBl4pSyppirbXbTW03o5YNZbGOIqYYOWayuuHxfNIvIKqMm5eV6GjRRWu+EHzJ/lmyVA==
 
 "@types/node@>=10.0.0":
   version "18.6.3"
@@ -171,6 +199,11 @@
   integrity sha512-6KEABBcWAD6PychSyUUXuyCOIy64c5V6KJczTK4hpR5JKSBdK/s/LFQgRDnfy0F6lQWf9UvjE5Z2PbU7mhU3Tw==
   dependencies:
     "@types/node" "*"
+
+"@types/parse-glob@3.0.27-alpha":
+  version "3.0.27-alpha"
+  resolved "https://registry.yarnpkg.com/@types/parse-glob/-/parse-glob-3.0.27-alpha.tgz#71e27e542d3146ee53a6a1d3923eaf8386134507"
+  integrity sha512-CxixQU+So2YdCnAbCJ/aj3dn5ErQMPIV5yBECtxpvUdkGpTZ6nrQEfNrXnOKyDQd1xgWC6Mtr8At0T8lpSb4Sg==
 
 "@types/parse-json@^4.0.0":
   version "4.0.0"

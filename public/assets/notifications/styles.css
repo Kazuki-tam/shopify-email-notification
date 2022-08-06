@@ -258,7 +258,6 @@ a, a:hover, a:active, a:visited {
 }
 
 .spacer {
-  display: none;
   min-width: 600px;
   height: 0
 }
@@ -331,7 +330,7 @@ a, a:hover, a:active, a:visited {
 
 .subtotal-lines {
   margin-top: 15px;
-  border-top: 1px solid #e5e5e5
+  // border-top: 1px solid #e5e5e5
 }
 
 .subtotal-table {
