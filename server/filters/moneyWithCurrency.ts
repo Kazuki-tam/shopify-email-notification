@@ -7,8 +7,12 @@
  * https://shopify.dev/api/liquid/filters#money_with_currency
  */
 
- const moneyWithCurrency = (price: number, symbol: string, abbreviation: string): string => {
+const moneyWithCurrency = (
+  price: number,
+  symbol: string,
+  abbreviation: string,
+): string => {
   return `${symbol}${price} ${abbreviation}`;
-}
+};
 
 export { moneyWithCurrency };

@@ -2,129 +2,130 @@ const ItemArray = [
   {
     // image: "",
     product: {
-      title: 'Aviator sunglasses'
+      title: 'Aviator sunglasses',
     },
     quantity: 1,
     refunded_quantity: 0,
     original_line_price: 200,
     final_line_price: 200,
-    title: 'Aviator sunglasses'
+    title: 'Aviator sunglasses',
   },
   {
     // image: "",
     product: {
-      title: 'Mid-century lounger '
+      title: 'Mid-century lounger ',
     },
     quantity: 1,
     refunded_quantity: 0,
     discount_allocations: [
       {
-      amount: 5.00,
-      discount_application: {
-        title: 'DISCOUNT'
-      }
-    }
-  ],
+        amount: 5.0,
+        discount_application: {
+          title: 'DISCOUNT',
+        },
+      },
+    ],
     original_line_price: 200,
     final_line_price: 100,
-    title: 'Aviator sunglasses'
-  }
+    title: 'Aviator sunglasses',
+  },
 ];
 
 const Country = {
   currency: {
-    iso_code: "CAD",
-    name: "Canadian Dollar",
-    symbol: "$"
+    iso_code: 'CAD',
+    name: 'Canadian Dollar',
+    symbol: '$',
   },
-  iso_code: "CA",
-  name: "Canada",
-  unit_system: "metric"
+  iso_code: 'CA',
+  name: 'Canada',
+  unit_system: 'metric',
 };
 
 const transactionArray = [
   {
-    amount: "255",
-    created_at: "2022-06-15 19:13:14 -0400",
-    gateway: "shopify_payments",
-    gateway_display_name: "Shopify payments",
+    amount: '255',
+    created_at: '2022-06-15 19:13:14 -0400',
+    gateway: 'shopify_payments',
+    gateway_display_name: 'Shopify payments',
     id: 5432242176065,
-    kind: "sale",
-    name: "c29944051400769.",
+    kind: 'sale',
+    name: 'c29944051400769.',
     payment_details: {
-      credit_card_number: "•••• •••• •••• 4242",
-      credit_card_company: "Visa",
-      credit_card_last_four_digits: "4242"
+      credit_card_number: '•••• •••• •••• 4242',
+      credit_card_company: 'Visa',
+      credit_card_last_four_digits: '4242',
     },
-    receipt: "#☠1☢\n---\nid: pi_3LB5Oh2m9fH5ulsO18aKrXyL\nobject: payment_intent\namount: 38025\namount_capturable: 0\namount_received: 38025\ncanceled_at: \ncancellation_reason: \ncapture_method: automatic\ncharges:\n  object: list\n  data:\n  - id: ch_3LB5Oh2m9fH5ulsO1KncBePo\n    object: charge\n    amount: 38025\n    application_fee: fee_1LB5Oi2m9fH5ulsOrVcBjr4k\n    balance_transaction:\n      id: txn_3LB5Oh2m9fH5ulsO1JtjGSxy\n      object: balance_transaction\n      exchange_rate: \n    captured: true\n    created: 1655334796\n    currency: cad\n    failure_code: \n    failure_message: \n    fraud_details: {}\n    livemode: false\n    metadata:\n      shop_id: '56174706753'\n      shop_name: Polina's Potent Potions\n      transaction_fee_total_amount: '791'\n      transaction_fee_tax_amount: '0'\n      payments_charge_id: '2076986474561'\n      order_transaction_id: '5432242176065'\n      manual_entry: 'false'\n      order_id: c29944051400769.1\n      email: cornelius.potionmaker@gmail.com\n    outcome:\n      network_status: approved_by_network\n      reason: \n      risk_level: normal\n      risk_score: 15\n      seller_message: Payment complete.\n      type: authorized\n    paid: true\n    payment_intent: pi_3LB5Oh2m9fH5ulsO18aKrXyL\n    payment_method: pm_1LB5Oh2m9fH5ulsOk67EqrsK\n    payment_method_details:\n      card:\n        brand: visa\n        checks:\n          address_line1_check: pass\n          address_postal_code_check: pass\n          cvc_check: pass\n        country: US\n        description: Visa Classic\n        ds_transaction_id: \n        exp_month: 1\n        exp_year: 2029\n        fingerprint: KE6OIQsc8EspGDeW\n        funding: credit\n        iin: '424242'\n        installments: \n        issuer: Stripe Payments UK Limited\n        last4: '4242'\n        mandate: \n        moto: \n        network: visa\n        network_token: \n        network_transaction_id: '541168454791087'\n        three_d_secure: \n        wallet: \n      type: card\n    refunded: false\n    source: \n    status: succeeded\n    mit_params:\n      network_transaction_id: '541168454791087'\n  has_more: false\n  total_count: 1\n  url: \"/v1/charges?payment_intent=pi_3LB5Oh2m9fH5ulsO18aKrXyL\"\nconfirmation_method: manual\ncreated: 1655334795\ncurrency: cad\nlast_payment_error: \nlivemode: false\nmetadata:\n  shop_id: '56174706753'\n  shop_name: Polina's Potent Potions\n  transaction_fee_total_amount: '791'\n  transaction_fee_tax_amount: '0'\n  payments_charge_id: '2076986474561'\n  order_transaction_id: '5432242176065'\n  manual_entry: 'false'\n  order_id: c29944051400769.1\n  email: cornelius.potionmaker@gmail.com\nnext_action: \npayment_method: pm_1LB5Oh2m9fH5ulsOk67EqrsK\npayment_method_types:\n- card\nsource: \nstatus: succeeded\n",
-    status: "success",
-    status_label: "Success"
-  }
+    receipt:
+      "#☠1☢\n---\nid: pi_3LB5Oh2m9fH5ulsO18aKrXyL\nobject: payment_intent\namount: 38025\namount_capturable: 0\namount_received: 38025\ncanceled_at: \ncancellation_reason: \ncapture_method: automatic\ncharges:\n  object: list\n  data:\n  - id: ch_3LB5Oh2m9fH5ulsO1KncBePo\n    object: charge\n    amount: 38025\n    application_fee: fee_1LB5Oi2m9fH5ulsOrVcBjr4k\n    balance_transaction:\n      id: txn_3LB5Oh2m9fH5ulsO1JtjGSxy\n      object: balance_transaction\n      exchange_rate: \n    captured: true\n    created: 1655334796\n    currency: cad\n    failure_code: \n    failure_message: \n    fraud_details: {}\n    livemode: false\n    metadata:\n      shop_id: '56174706753'\n      shop_name: Polina's Potent Potions\n      transaction_fee_total_amount: '791'\n      transaction_fee_tax_amount: '0'\n      payments_charge_id: '2076986474561'\n      order_transaction_id: '5432242176065'\n      manual_entry: 'false'\n      order_id: c29944051400769.1\n      email: cornelius.potionmaker@gmail.com\n    outcome:\n      network_status: approved_by_network\n      reason: \n      risk_level: normal\n      risk_score: 15\n      seller_message: Payment complete.\n      type: authorized\n    paid: true\n    payment_intent: pi_3LB5Oh2m9fH5ulsO18aKrXyL\n    payment_method: pm_1LB5Oh2m9fH5ulsOk67EqrsK\n    payment_method_details:\n      card:\n        brand: visa\n        checks:\n          address_line1_check: pass\n          address_postal_code_check: pass\n          cvc_check: pass\n        country: US\n        description: Visa Classic\n        ds_transaction_id: \n        exp_month: 1\n        exp_year: 2029\n        fingerprint: KE6OIQsc8EspGDeW\n        funding: credit\n        iin: '424242'\n        installments: \n        issuer: Stripe Payments UK Limited\n        last4: '4242'\n        mandate: \n        moto: \n        network: visa\n        network_token: \n        network_transaction_id: '541168454791087'\n        three_d_secure: \n        wallet: \n      type: card\n    refunded: false\n    source: \n    status: succeeded\n    mit_params:\n      network_transaction_id: '541168454791087'\n  has_more: false\n  total_count: 1\n  url: \"/v1/charges?payment_intent=pi_3LB5Oh2m9fH5ulsO18aKrXyL\"\nconfirmation_method: manual\ncreated: 1655334795\ncurrency: cad\nlast_payment_error: \nlivemode: false\nmetadata:\n  shop_id: '56174706753'\n  shop_name: Polina's Potent Potions\n  transaction_fee_total_amount: '791'\n  transaction_fee_tax_amount: '0'\n  payments_charge_id: '2076986474561'\n  order_transaction_id: '5432242176065'\n  manual_entry: 'false'\n  order_id: c29944051400769.1\n  email: cornelius.potionmaker@gmail.com\nnext_action: \npayment_method: pm_1LB5Oh2m9fH5ulsOk67EqrsK\npayment_method_types:\n- card\nsource: \nstatus: succeeded\n",
+    status: 'success',
+    status_label: 'Success',
+  },
 ];
 
 const emailEnv = {
   // Shop info
   shop: {
-    name: "Sample Store",
-    email: "example@xxxxx.com",
+    name: 'Sample Store',
+    email: 'example@xxxxx.com',
     // email_logo_url: "/logo.png",
     email_logo_width: 160,
-    email_accent_color: "#000",
+    email_accent_color: '#000',
     url: '/',
   },
   // Customer info
   customer: {
-    first_name: "John",
-    last_name: "Smith"
+    first_name: 'John',
+    last_name: 'Smith',
   },
   // Order info
-  order_name: "#9999",
-  order_status_url: "/",
+  order_name: '#9999',
+  order_status_url: '/',
   // Subtotal info
   subtotal_line_items: ItemArray,
-  subtotal_price: 100.00,
+  subtotal_price: 100.0,
   tax_price: 0,
   total_price: 255,
   // Shipping info
-  shipping_price: 10.00,
+  shipping_price: 10.0,
   requires_shipping: true,
   shipping_address: {
-    address1: "150 Elgin Street",
-    address2: "8th floor",
-    city: "Ottawa",
+    address1: '150 Elgin Street',
+    address2: '8th floor',
+    city: 'Ottawa',
     company: "Polina's Potions, LLC",
     country: Country,
-    country_code: "CA",
-    first_name: "John",
+    country_code: 'CA',
+    first_name: 'John',
     id: 56174706753,
-    last_name: "Smith",
-    name: "John Smith",
-    phone: "416-123-1234",
-    province: "Ontario",
-    province_code: "ON",
-    street: "150 Elgin Street, 8th floor",
-    summary: "150 Elgin Street, 8th floor, Ottawa, Ontario, Canada",
-    url: "/account/addresses/56174706753",
-    zip: "K2P 1L4"
+    last_name: 'Smith',
+    name: 'John Smith',
+    phone: '416-123-1234',
+    province: 'Ontario',
+    province_code: 'ON',
+    street: '150 Elgin Street, 8th floor',
+    summary: '150 Elgin Street, 8th floor, Ottawa, Ontario, Canada',
+    url: '/account/addresses/56174706753',
+    zip: 'K2P 1L4',
   },
   billing_address: {
-    address1: "151 Elgin Street",
-    address2: "6th floor",
-    city: "Ottawa",
-    company: "ABC",
+    address1: '151 Elgin Street',
+    address2: '6th floor',
+    city: 'Ottawa',
+    company: 'ABC',
     country: Country,
-    country_code: "CA",
-    first_name: "Jane",
+    country_code: 'CA',
+    first_name: 'Jane',
     id: 56174706753,
-    last_name: "Doe",
-    name: "Jane Doe",
-    phone: "417-123-1234",
-    province: "Ontario",
-    province_code: "ON",
-    street: "151 Elgin Street, 6th floor",
-    summary: "151 Elgin Street, 6th floor, Ottawa, Ontario, Canada",
-    url: "/account/addresses/56174706753",
-    zip: "K2P 1L4"
+    last_name: 'Doe',
+    name: 'Jane Doe',
+    phone: '417-123-1234',
+    province: 'Ontario',
+    province_code: 'ON',
+    street: '151 Elgin Street, 6th floor',
+    summary: '151 Elgin Street, 6th floor, Ottawa, Ontario, Canada',
+    url: '/account/addresses/56174706753',
+    zip: 'K2P 1L4',
   },
   shipping_method: {
     title: 'Generic Shipping',
@@ -134,4 +135,4 @@ const emailEnv = {
   transactions: transactionArray,
 };
 
-export {emailEnv};
+export { emailEnv };

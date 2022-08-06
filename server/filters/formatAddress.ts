@@ -1,4 +1,4 @@
-import type { Address } from "../types/address"
+import type { Address } from '../types/address';
 
 /**
  * format_address filter
@@ -12,7 +12,7 @@ const formatAddress = (address: Address): string => {
   const address1 = address.address1;
   const address2 = address.address2;
   const countryName = address.country.name;
-  return `<p>${company}<br>${name}<br>${zip}<br>${address1} ${address2}<br>${countryName}</p>`
-}
+  return `<p>${company}<br>${name}<br>${zip}<br>${address1} ${address2}<br>${countryName}</p>`;
+};
 
 export { formatAddress };

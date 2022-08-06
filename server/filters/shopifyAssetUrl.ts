@@ -6,6 +6,6 @@
 
 const shopifyAssetUrl = (url: string): string => {
   return `/assets/${url}`;
-}
+};
 
 export { shopifyAssetUrl };

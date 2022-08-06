@@ -8,13 +8,15 @@ import { paymentIconPngUrl } from './filters/paymentIconPngUrl';
 import { money } from './filters/money';
 import { moneyWithCurrency } from './filters/moneyWithCurrency';
 
-const app: express.Express = express()
+import type { Address } from './types/address';
+
+const app: express.Express = express();
 
 const engine = new Liquid({
   root: __dirname,
   extname: '.liquid',
-  cache: false
-})
+  cache: false,
+});
 
 app.engine('liquid', engine.express());
 app.set('view engine', 'liquid');
@@ -39,24 +41,39 @@ app.set('views', [
 ]);
 
 // Register filters
-engine.registerFilter('format_address', address => formatAddress(address));
-engine.registerFilter('shopify_asset_url', url => shopifyAssetUrl(url));
-engine.registerFilter('payment_icon_png_url', payment => paymentIconPngUrl(payment));
-engine.registerFilter('money', price => money(price, '$'));
-engine.registerFilter('money_with_currency', price => moneyWithCurrency(price, '$', 'CAD'));
+engine.registerFilter('format_address', (address: Address) =>
+  formatAddress(address),
+);
+engine.registerFilter('shopify_asset_url', (url: string) =>
+  shopifyAssetUrl(url),
+);
+engine.registerFilter('payment_icon_png_url', (payment: string) =>
+  paymentIconPngUrl(payment),
+);
+engine.registerFilter('money', (price: number) => money(price, '$'));
+engine.registerFilter('money_with_currency', (price: number) =>
+  moneyWithCurrency(price, '$', 'CAD'),
+);
 
 // Define routes
-app.use('/', router)
+app.use('/', router);
 app.use(express.static('public'));
 
 // Error
 app.use((req, res) => {
   res.status(404).send(`Not found: ${req.path}`);
-})
-
-app.use((err: { stack: string; }, _req: Request, res: Response, _next: NextFunction) => {
-  console.error(err.stack);
-  res.status(500).send('Internal Server Error!');
 });
 
-export {app};
+app.use(
+  (
+    err: { stack: string },
+    _req: Request,
+    res: Response,
+    _next: NextFunction,
+  ) => {
+    console.error(err.stack);
+    res.status(500).send('Internal Server Error!');
+  },
+);
+
+export { app };
