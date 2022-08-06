@@ -5,14 +5,18 @@ require('dotenv').config();
 const ADMIN_URL = process.env.ADMIN_URL;
 const FLAG = process.env.FLAG;
 
+const red = '\u001b[31m';
+const blue = '\u001b[34m';
+const reset = '\u001b[0m';
+
 const openUrl = () => {
   // Error handling
   if (!ADMIN_URL) {
-    console.error('Error: ADMIN_URL is not defined.');
+    console.error(`Error: ${red}ADMIN_URL is not defined.${reset}`);
     return;
   }
   if (!FLAG) {
-    console.error('Error: FLAG is not defined.');
+    console.error(`Error: ${red}FLAG is not defined.${reset}`);
     return;
   }
   // Create a URL
@@ -63,7 +67,7 @@ const openUrl = () => {
     targetUrl = `${ADMIN_URL}email_templates/pending_payment_success/edit`
   }
   // Open a URL
-  console.log(`Open: ${targetUrl}`);
+  console.log(`Open: ${blue}${targetUrl}${reset}`);
   opener(targetUrl);
 }
 
