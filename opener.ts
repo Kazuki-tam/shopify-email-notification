@@ -1,5 +1,5 @@
 import opener = require("opener");
-require('dotenv').config();
+import 'dotenv/config'
 
 // Environment variables
 const ADMIN_URL = process.env.ADMIN_URL;

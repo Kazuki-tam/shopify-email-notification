@@ -8,7 +8,7 @@ type Country = {
   currency: Currency;
   iso_code: string;
   name: string;
-  unit_system: 'metric' | 'imperial';
+  unit_system: string;
 };
 
 type Address = {

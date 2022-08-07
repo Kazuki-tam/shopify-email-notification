@@ -4,6 +4,7 @@ import type { Address } from '../types/address';
  * format_address filter
  * @param { object } address - Address
  * @returns { string } - Formatted address
+ * https://shopify.dev/api/liquid/filters#format_address
  */
 const formatAddress = (address: Address): string => {
   const company = address.company;
