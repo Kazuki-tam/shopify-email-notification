@@ -71,6 +71,7 @@
 @media screen and (min-width: 768px) {
   .Polaris-Layout__Section {
     flex: auto;
+    width: 46%;
     min-width: 46%;
   }
 }

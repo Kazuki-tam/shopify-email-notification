@@ -105,7 +105,14 @@
   </tr>
   <tr>
     <td>
-      <a href="http://www.google.com/maps/search/?api=1&query={{ location.name }} - {{ [location.address1, location.address2].compact.join(', ') }}, {{ location.city }}, {{ location.province }}, {{ location.zip }}" target="_blank">
+      {%- comment -%}
+      You should replace <a>地図を開く&nbsp;</a> tag like bellow code.
+      <!-- <a href="http://www.google.com/maps/search/?api=1&query={{ location.name }} - {{ [location.address1, location.address2].compact.join(', ') }}, {{ location.city }}, {{ location.province }}, {{ location.zip }}" target="_blank">
+        地図を開く&nbsp;
+        <span class="small">&rarr;</span>
+      </a> -->
+      {%- endcomment -%}
+      <a href="#" target="_blank">
         地図を開く&nbsp;
         <span class="small">&rarr;</span>
       </a>

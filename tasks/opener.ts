@@ -6,7 +6,7 @@ const ADMIN_URL = process.env.ADMIN_URL;
 const FLAG = process.env.FLAG;
 
 const red = '\u001b[31m';
-const blue = '\u001b[34m';
+const blue = '\u001b[36m';
 const reset = '\u001b[0m';
 
 const openUrl = () => {

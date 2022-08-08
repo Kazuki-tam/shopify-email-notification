@@ -4,9 +4,11 @@ import { router } from './routes';
 
 import { formatAddress } from './filters/formatAddress';
 import { shopifyAssetUrl } from './filters/shopifyAssetUrl';
+import { cdnAssetUrl } from './filters/cdnAssetUrl';
 import { paymentIconPngUrl } from './filters/paymentIconPngUrl';
 import { money } from './filters/money';
 import { moneyWithCurrency } from './filters/moneyWithCurrency';
+import { moneyWithoutTrailingZeros } from './filters/moneyWithoutTrailingZeros';
 
 import type { Address } from './types/address';
 
@@ -47,6 +49,9 @@ engine.registerFilter('format_address', (address: Address) =>
 engine.registerFilter('shopify_asset_url', (url: string) =>
   shopifyAssetUrl(url),
 );
+engine.registerFilter('cdn_asset_url', (url: string) =>
+cdnAssetUrl(url),
+);
 engine.registerFilter('payment_icon_png_url', (payment: string) =>
   paymentIconPngUrl(payment),
 );
@@ -54,6 +59,7 @@ engine.registerFilter('money', (price: number) => money(price, '$'));
 engine.registerFilter('money_with_currency', (price: number) =>
   moneyWithCurrency(price, '$', 'CAD'),
 );
+engine.registerFilter('money_without_trailing_zeros', (price: number) => moneyWithoutTrailingZeros(price, '$'));
 
 // Define routes
 app.use('/', router);

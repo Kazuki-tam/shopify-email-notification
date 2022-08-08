@@ -7,7 +7,10 @@ const ItemArray = [
     quantity: 1,
     refunded_quantity: 0,
     original_line_price: 200,
+    original_price: 200,
     final_line_price: 200,
+    final_price: 200,
+    line_price: 200,
     title: 'Aviator sunglasses',
   },
   {
@@ -27,6 +30,9 @@ const ItemArray = [
     ],
     original_line_price: 200,
     final_line_price: 100,
+    original_price: 200,
+    final_price: 100,
+    line_price: 100,
     title: 'Aviator sunglasses',
   },
 ];
@@ -65,6 +71,8 @@ const transactionArray = [
 
 const emailEnv = {
   // Shop info
+  date: new Date(),
+  custom_message: 'Welcome to our shop, hope you enjoyed the experience.',
   shop: {
     name: 'Sample Store',
     email: 'example@xxxxx.com',
@@ -79,13 +87,66 @@ const emailEnv = {
     last_name: 'Smith',
   },
   // Order info
+  order: {
+    name: '#9999',
+    total_outstanding: 255,
+  },
   order_name: '#9999',
   order_status_url: '/',
+  parent_order: {
+    order_number: 1234,
+    line_items: ItemArray,
+    subtotal_price: 100,
+    shipping_price: 20,
+    tax_price: 0,
+    total_price: 120,
+  },
+  child_order: {
+    subtotal_price: 100,
+    shipping_price: 20,
+    tax_price: 0,
+    total_price: 120,
+    line_items: ItemArray,
+  },
+  parent_order_processed_at: 'August 7, 2022',
   // Subtotal info
   subtotal_line_items: ItemArray,
-  subtotal_price: 100.0,
+  subtotal_price: 100,
   tax_price: 0,
   total_price: 255,
+  // Total info
+  total_outstanding: 255,
+  // Refund info
+  amount: 255,
+  refund_amount: 100,
+  exchange_balance: 20,
+  // Return info
+  return: {
+    line_items: ItemArray,
+    deliveries: [
+      {
+        shopify_label: 'shopify_label',
+        tracking_url: '/'
+      }
+    ],
+  },
+  return_line_items: ItemArray,
+  return_subtotal: 100,
+  return_tax_total: 10,
+  return_total: 110,
+  // Added info
+  added_line_items: ItemArray,
+  added_subtotal: 100,
+  added_tax_total: 10,
+  added_total: 110,
+  exchange_total: 90,
+  // Gift card info
+  gift_card: {
+    balance: 100,
+    customer: {
+      last_name: 'Smith'
+    }
+  },
   // Shipping info
   shipping_price: 10.0,
   requires_shipping: true,
@@ -129,10 +190,53 @@ const emailEnv = {
   },
   shipping_method: {
     title: 'Generic Shipping',
+    price: 10,
   },
   delivery_method: 'local',
   // Transaction info
   transactions: transactionArray,
+  // Fulfillment info
+  service_name: 'My Custom Fulfillment Service Inc.',
+  name: '#9999',
+  email: 'example@xxxxx.com',
+  fulfillment: {
+    item_count: 3,
+    created_at: "2022-06-15 17:08:30 -0400",
+    fulfillment_line_items: [
+      {
+        quantity: 2,
+        line_item: {
+          quantity: 2,
+          refunded_quantity: 0,
+          product: {
+            title: 'Aviator sunglasses',
+          },
+        },
+      },
+      {
+        quantity: 1,
+        line_item: {
+          quantity: 1,
+          refunded_quantity: 0,
+          product: {
+            title: 'Mid-century lounger ',
+          },
+        }
+      }
+    ],
+    tracking_company: "Canada Post",
+    tracking_number: "01189998819991197253",
+    tracking_url: "https://www.canadapost.ca/track-reperage/en#/search?searchFor=01189998819991197253"
+  },
+  // Location info
+  location: {
+    name: 'Example Shop',
+    address1: '34 Example Street',
+    address2: 'Next to example',
+    city: 'Ottawa',
+    province: 'Ontario',
+    zip: 'K1N5T5',
+  }
 };
 
 export { emailEnv };

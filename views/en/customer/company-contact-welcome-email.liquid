@@ -1,15 +1,15 @@
 {% capture email_title %}
-  {{shop_name}}へようこそ
+  Welcome to {{shop_name}}
 {% endcapture %}
 {% capture email_sub_title %}
-  B2Bの初回注文を行いましょう
+  Place your first B2B order
 {% endcapture %}
 {% capture email_body %}
-  <a target="_blank" href="{{shop_link}}">{{shop_name}}</a>でB2Bの注文ができるようになりました。ログインして初回の注文を行いましょう。
+  You now have access to start placing B2B orders with <a target="_blank" href="{{shop_link}}">{{shop_name}}</a>. Log in to place your first order.
 {% endcapture %}
 
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
   <head>
   <title>{{ email_title }}</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -83,7 +83,7 @@
                     <tr>
                       <td class="button__cell">
                         <a href="{{ account_link }}" class="button__text">
-                          アカウントに移動
+                          Go to account
                         </a>
                       </td>
                     </tr>
@@ -109,7 +109,7 @@
           <tr>
             <td>
 
-              <p class="disclaimer__subtext">ご不明な点がございましたら、このメールにご返信いただくか、<a href="mailto:{{ shop.email }}">{{ shop.email }}</a>までご連絡ください。</p>
+              <p class="disclaimer__subtext">If you have any questions, reply to this email or contact us at <a href="mailto:{{ shop.email }}">{{ shop.email }}</a></p>
             </td>
           </tr>
         </table>

@@ -49,12 +49,6 @@ const linkList = [
   },
   {
     category: 'orders',
-    title_en: null,
-    title_ja: 'POSとモバイルレシート',
-    path: '/orders/store-receipt',
-  },
-  {
-    category: 'orders',
     title_en: 'POS exchange receipt',
     title_ja: 'POS交換レシート',
     path: '/orders/pos-exchange-receipt',
@@ -169,18 +163,6 @@ const linkList = [
   },
   {
     category: 'customer',
-    title_en: null,
-    title_ja: 'お客様による決済方法更新のリクエスト',
-    path: '/customer/customer-update-payment-method',
-  },
-  {
-    category: 'customer',
-    title_en: null,
-    title_ja: 'お客様による決済方法復元のリクエスト',
-    path: '/customer/customer-restore-payment-method',
-  },
-  {
-    category: 'customer',
     title_en: 'B2B access email',
     title_ja: 'B2Bアクセスメール',
     path: '/customer/company-contact-welcome-email',
@@ -189,7 +171,7 @@ const linkList = [
     category: 'customer',
     title_en: 'Contact customer',
     title_ja: 'お客様への連絡',
-    path: '/customer/company-contact-welcome-email',
+    path: '/customer/contact-buyer',
   },
   {
     category: 'email_marketing',
