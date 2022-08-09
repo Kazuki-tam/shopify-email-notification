@@ -2,6 +2,9 @@
 .Top-Body {
   color: #aaa;
 }
+.Top-lang--pc {
+  display: none;
+}
 .Top-lang__List {
   display: flex;
   align-items: center;
@@ -15,6 +18,58 @@
   text-decoration: none;
 }
 .Top-lang__List-link.is-active {
+  color: #fff;
+}
+.TopBar__Menu {
+  display: flex;
+  align-items: center;
+}
+.Top-lang__Drawer {
+  position: relative;
+}
+.Top-lang__summary {
+  color: #fff;
+  appearance: none;
+  list-style: none;
+  padding-right: 20px;
+}
+.Top-lang__summary::after {
+  position: absolute;
+  top: 4px;
+  right: -10px;
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 10px;
+  border-bottom: 2px solid #fff;
+  border-right: 2px solid #fff;
+  transform: rotate(45deg);
+}
+.Top-lang__Drawer[open] .Top-lang__summary::after {
+  top: 8px;
+  transform: rotate(226deg);
+}
+.Top-lang__DrawerList {
+  padding: 10px 20px;
+  list-style: none;
+  position: absolute;
+  top: auto;
+  right: 0;
+  bottom: auto;
+  left: auto;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  background-color: #2c2c2c;
+}
+.Top-lang__DrawerList-item:not(:first-child) {
+  margin-top: 10px;
+}
+.Top-lang__DrawerList-link {
+  color: #aaa;
+  text-decoration: none;
+}
+.Top-lang__DrawerList-link.is-active {
   color: #fff;
 }
 
@@ -60,6 +115,7 @@
 .Polaris-List {
   margin-top: 10px;
 }
+
 @media (hover: hover) and (pointer: fine) {
   .Polaris-Link:hover,
   .Polaris-Link:focus,
@@ -73,5 +129,11 @@
     flex: auto;
     width: 46%;
     min-width: 46%;
+  }
+  .Top-lang--pc {
+    display: block;
+  }
+  .Top-lang--sp {
+    display: none;
   }
 }
