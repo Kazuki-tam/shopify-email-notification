@@ -113,7 +113,7 @@ You'll find notification templates in views directories.
 - ja folder: Japanese templates
 
 ## Notification variables
-Edit `emailEnv.ts` if you want modify value of notification variables.
+Edit `emailEnv.ts` if you want to modify the value of notification variables.
 
 ```
 server/constants/emailEnv.ts
