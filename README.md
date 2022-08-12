@@ -147,6 +147,14 @@ Open staff order notification pages.
 yarn staffOrderNotifications
 ```
 
+### Format command
+
+Format this project code.
+
+```bash
+yarn format
+```
+
 ### Lint command
 
 Lint this project code.
