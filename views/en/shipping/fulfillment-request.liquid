@@ -13,23 +13,33 @@
   <p>Vendor: {{ line.line_item.vendor }}</p>
 {% endfor %}
 {% if shipping_address %}
-<br>
-<p><strong>Shipping Address:</strong></p>
-<p>{{ shipping_address.name }}{% if shipping_address.company %}
-  {{ shipping_address.company }}{% endif %}</p>
-<p>{{ shipping_address.address1 }}</p>
-<p>{{ shipping_address.address2 }}</p>
-<p>{{ shipping_address.city }}, {{ shipping_address.province }}</p>
-<p>{{ shipping_address.zip }}</p>
-<p>{{ shipping_address.country }}</p>
-{% if shipping_address.phone %}<p>Phone: {{ shipping_address.phone }}</p>{% endif %}
+  <br>
+  <p><strong>Shipping Address:</strong></p>
+  <p>
+    {{ shipping_address.name -}}
+    {%- if shipping_address.company %}
+      {{ shipping_address.company -}}
+    {%- endif %}
+  </p>
+  <p>{{ shipping_address.address1 }}</p>
+  <p>{{ shipping_address.address2 }}</p>
+  <p>{{ shipping_address.city }}, {{ shipping_address.province }}</p>
+  <p>{{ shipping_address.zip }}</p>
+  <p>{{ shipping_address.country }}</p>
+  {% if shipping_address.phone -%}
+    <p>Phone: {{ shipping_address.phone }}</p>
+  {%- endif %}
 {% endif %}
 <br>
 <p><strong>Shipping Method:</strong></p>
-<p>{% if shipping_method %}{{ shipping_method.title }}{% else %}None{% endif %}</p>
+<p>
+  {% if shipping_method %}{{ shipping_method.title }}{% else %}None{% endif %}
+</p>
 <br>
 <p><strong>Tracking Number:</strong></p>
-<p>{% if fulfillment.tracking_number %}{{ fulfillment.tracking_number }}{% else %}None{% endif %}</p>
+<p>
+  {% if fulfillment.tracking_number %}{{ fulfillment.tracking_number }}{% else %}None{% endif %}
+</p>
 <br>
 <p><strong>Customer Email:</strong></p>
 <p>{{ email }}</p>

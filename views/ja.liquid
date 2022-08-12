@@ -1,131 +1,161 @@
 <!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shopify Notifications</title>
-  <link
-  rel="stylesheet"
-  href="https://unpkg.com/@shopify/polaris@9.21.1/build/esm/styles.css"
-  >
-  <link rel="stylesheet" href="/top.css">
-</head>
-<body class="Top-Body">
-  <div class="Polaris-Frame Polaris-Frame--hasTopBar" data-polaris-layer="true">
-    <header class="Polaris-Frame__TopBar" data-polaris-layer="true" data-polaris-top-bar="true" id="AppFrameTopBar" style="width: 100%;">
-      <div class="Polaris-TopBar">
-        <div class="Polaris-TopBar__LogoContainer">
-          <h1>
-            <a class="Polaris-TopBar__LogoLink" href="/" data-polaris-unstyled="true">Shopify Notifications</a>
-          </h1>
-        </div>
-        <div class="Polaris-TopBar-Menu TopBar__Menu">
-          <div class="Top-lang--pc">
-            <ul class="Top-lang__List">
-              <li class="Top-lang__List-item"><a class="Top-lang__List-link" href="/">English</a></li>
-              <li class="Top-lang__List-item"><a class="Top-lang__List-link is-active" href="/ja/">日本語</a></li>
-            </ul>
+<html lang='ja'>
+  <head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Shopify Notifications</title>
+    <link
+      rel='stylesheet'
+      href='https://unpkg.com/@shopify/polaris@9.21.1/build/esm/styles.css'
+    >
+    <link rel='stylesheet' href='/top.css'>
+  </head>
+  <body class='Top-Body'>
+    <div class='Polaris-Frame Polaris-Frame--hasTopBar' data-polaris-layer='true'>
+      <header
+        class='Polaris-Frame__TopBar'
+        data-polaris-layer='true'
+        data-polaris-top-bar='true'
+        id='AppFrameTopBar'
+        style='width: 100%;'
+      >
+        <div class='Polaris-TopBar'>
+          <div class='Polaris-TopBar__LogoContainer'>
+            <h1>
+              <a class='Polaris-TopBar__LogoLink' href='/' data-polaris-unstyled='true'>Shopify Notifications</a>
+            </h1>
           </div>
-          <details class="Top-lang--sp Top-lang__Drawer">
-            <summary class="Top-lang__summary">Language</summary>
-            <ul class="Top-lang__DrawerList">
-              <li class="Top-lang__DrawerList-item"><a class="Top-lang__DrawerList-link" href="/">English</a></li>
-              <li class="Top-lang__DrawerList-item"><a class="Top-lang__DrawerList-link is-active" href="/ja/">日本語</a></li>
-            </ul>
-          </details>
-        </div>
-      </div>
-    </header>
-    <main class="Polaris-Frame__Main" id="AppFrameMain" data-has-global-ribbon="false">
-      <div class="Polaris-Page Polaris-Page--fullWidth">
-        <section class="Polaris-Page__Content">
-          <h2 class="Polaris-Header-Title">メールテンプレート</h2>
-          <div class="Polaris-Layout">
-            <div class="Polaris-Layout__Section Polaris-Layout__Section--oneHal">
-              <h3 class="Polaris-Header-Title__SubTitle">注文管理</h3>
-              <ul class="Polaris-List">
-                {% for ordersItem in ordersList %}
-                  {% if ordersItem.title_ja %}
-                    <li class="Polaris-List__Item"><a class="Polaris-Link" href="{{ordersItem.path}}-ja/">{{ordersItem.title_ja}}</a></li>
-                  {% endif %}
-                {% endfor %}
+          <div class='Polaris-TopBar-Menu TopBar__Menu'>
+            <div class='Top-lang--pc'>
+              <ul class='Top-lang__List'>
+                <li class='Top-lang__List-item'><a class='Top-lang__List-link' href='/'>English</a></li>
+                <li class='Top-lang__List-item'><a class='Top-lang__List-link is-active' href='/ja/'>日本語</a></li>
               </ul>
             </div>
-            <div class="Polaris-Layout__Section Polaris-Layout__Section--oneHal">
-              <h3 class="Polaris-Header-Title__SubTitle">配送</h3>
-              <ul class="Polaris-List">
-                {% for shippingItem in shippingList %}
-                  {% if shippingItem.title_ja %}
-                    <li class="Polaris-List__Item"><a class="Polaris-Link" href="{{shippingItem.path}}-ja/">{{shippingItem.title_ja}}</a></li>
-                  {% endif %}
-                {% endfor %}
+            <details class='Top-lang--sp Top-lang__Drawer'>
+              <summary class='Top-lang__summary'>Language</summary>
+              <ul class='Top-lang__DrawerList'>
+                <li class='Top-lang__DrawerList-item'><a class='Top-lang__DrawerList-link' href='/'>English</a></li>
+                <li class='Top-lang__DrawerList-item'>
+                  <a class='Top-lang__DrawerList-link is-active' href='/ja/'>日本語</a>
+                </li>
               </ul>
-            </div>
-            <div class="Polaris-Layout__Section Polaris-Layout__Section--oneHal">
-              <h3 class="Polaris-Header-Title__SubTitle">ローカルデリバリー</h3>
-              <ul class="Polaris-List">
-                {% for localDeliveryItem in localDeliveryList %}
-                  {% if localDeliveryItem.title_ja %}
-                    <li class="Polaris-List__Item"><a class="Polaris-Link" href="{{localDeliveryItem.path}}-ja/">{{localDeliveryItem.title_ja}}</a></li>
-                  {% endif %}
-                {% endfor %}
-              </ul>
-            </div>
-            <div class="Polaris-Layout__Section Polaris-Layout__Section--oneHal">
-              <h3 class="Polaris-Header-Title__SubTitle">店舗受取</h3>
-              <ul class="Polaris-List">
-                {% for localPickupItem in localPickupList %}
-                  {% if localPickupItem.title_ja %}
-                    <li class="Polaris-List__Item"><a class="Polaris-Link" href="{{localPickupItem.path}}-ja/">{{localPickupItem.title_ja}}</a></li>
-                  {% endif %}
-                {% endfor %}
-              </ul>
-            </div>
-            <div class="Polaris-Layout__Section Polaris-Layout__Section--oneHal">
-              <h3 class="Polaris-Header-Title__SubTitle">お客様</h3>
-              <ul class="Polaris-List">
-                {% for customerItem in customerList %}
-                  {% if customerItem.title_ja %}
-                    <li class="Polaris-List__Item"><a class="Polaris-Link" href="{{customerItem.path}}-ja/">{{customerItem.title_ja}}</a></li>
-                  {% endif %}
-                {% endfor %}
-              </ul>
-            </div>
-            <div class="Polaris-Layout__Section Polaris-Layout__Section--oneHal">
-              <h3 class="Polaris-Header-Title__SubTitle">Eメールマーケティング</h3>
-              <ul class="Polaris-List">
-                {% for emailMarketingItem in emailMarketingList %}
-                  {% if emailMarketingItem.title_ja %}
-                    <li class="Polaris-List__Item"><a class="Polaris-Link" href="{{emailMarketingItem.path}}-ja/">{{emailMarketingItem.title_ja}}</a></li>
-                  {% endif %}
-                {% endfor %}
-              </ul>
-            </div>
-            <div class="Polaris-Layout__Section Polaris-Layout__Section--oneHal">
-              <h3 class="Polaris-Header-Title__SubTitle">返品</h3>
-              <ul class="Polaris-List">
-                {% for returnsItem in returnsList %}
-                  {% if returnsItem.title_ja %}
-                    <li class="Polaris-List__Item"><a class="Polaris-Link" href="{{returnsItem.path}}-ja/">{{returnsItem.title_ja}}</a></li>
-                  {% endif %}
-                {% endfor %}
-              </ul>
-            </div>
-            <div class="Polaris-Layout__Section Polaris-Layout__Section--oneHal">
-              <h3 class="Polaris-Header-Title__SubTitle">スタッフ注文通知</h3>
-              <ul class="Polaris-List">
-                {% for staffOrderNotificationsItem in staffOrderNotificationsList %}
-                  {% if staffOrderNotificationsItem.title_ja %}
-                    <li class="Polaris-List__Item"><a class="Polaris-Link" href="{{staffOrderNotificationsItem.path}}-ja/">{{staffOrderNotificationsItem.title_ja}}</a></li>
-                  {% endif %}
-                {% endfor %}
-              </ul>
-            </div>
+            </details>
           </div>
-        </section>
-      </div>
-    </main>
-  </div>
-</body>
+        </div>
+      </header>
+      <main class='Polaris-Frame__Main' id='AppFrameMain' data-has-global-ribbon='false'>
+        <div class='Polaris-Page Polaris-Page--fullWidth'>
+          <section class='Polaris-Page__Content'>
+            <h2 class='Polaris-Header-Title'>メールテンプレート</h2>
+            <div class='Polaris-Layout'>
+              <div class='Polaris-Layout__Section Polaris-Layout__Section--oneHal'>
+                <h3 class='Polaris-Header-Title__SubTitle'>注文管理</h3>
+                <ul class='Polaris-List'>
+                  {% for ordersItem in ordersList %}
+                    {% if ordersItem.title_ja %}
+                      <li class='Polaris-List__Item'>
+                        <a class='Polaris-Link' href='{{ordersItem.path}}-ja/'>{{ ordersItem.title_ja }}</a>
+                      </li>
+                    {% endif %}
+                  {% endfor %}
+                </ul>
+              </div>
+              <div class='Polaris-Layout__Section Polaris-Layout__Section--oneHal'>
+                <h3 class='Polaris-Header-Title__SubTitle'>配送</h3>
+                <ul class='Polaris-List'>
+                  {% for shippingItem in shippingList %}
+                    {% if shippingItem.title_ja %}
+                      <li class='Polaris-List__Item'>
+                        <a class='Polaris-Link' href='{{shippingItem.path}}-ja/'>{{ shippingItem.title_ja }}</a>
+                      </li>
+                    {% endif %}
+                  {% endfor %}
+                </ul>
+              </div>
+              <div class='Polaris-Layout__Section Polaris-Layout__Section--oneHal'>
+                <h3 class='Polaris-Header-Title__SubTitle'>ローカルデリバリー</h3>
+                <ul class='Polaris-List'>
+                  {% for localDeliveryItem in localDeliveryList %}
+                    {% if localDeliveryItem.title_ja %}
+                      <li class='Polaris-List__Item'>
+                        <a class='Polaris-Link' href='{{localDeliveryItem.path}}-ja/'>
+                          {{- localDeliveryItem.title_ja -}}
+                        </a>
+                      </li>
+                    {% endif %}
+                  {% endfor %}
+                </ul>
+              </div>
+              <div class='Polaris-Layout__Section Polaris-Layout__Section--oneHal'>
+                <h3 class='Polaris-Header-Title__SubTitle'>店舗受取</h3>
+                <ul class='Polaris-List'>
+                  {% for localPickupItem in localPickupList %}
+                    {% if localPickupItem.title_ja %}
+                      <li class='Polaris-List__Item'>
+                        <a class='Polaris-Link' href='{{localPickupItem.path}}-ja/'>{{ localPickupItem.title_ja }}</a>
+                      </li>
+                    {% endif %}
+                  {% endfor %}
+                </ul>
+              </div>
+              <div class='Polaris-Layout__Section Polaris-Layout__Section--oneHal'>
+                <h3 class='Polaris-Header-Title__SubTitle'>お客様</h3>
+                <ul class='Polaris-List'>
+                  {% for customerItem in customerList %}
+                    {% if customerItem.title_ja %}
+                      <li class='Polaris-List__Item'>
+                        <a class='Polaris-Link' href='{{customerItem.path}}-ja/'>{{ customerItem.title_ja }}</a>
+                      </li>
+                    {% endif %}
+                  {% endfor %}
+                </ul>
+              </div>
+              <div class='Polaris-Layout__Section Polaris-Layout__Section--oneHal'>
+                <h3 class='Polaris-Header-Title__SubTitle'>Eメールマーケティング</h3>
+                <ul class='Polaris-List'>
+                  {% for emailMarketingItem in emailMarketingList %}
+                    {% if emailMarketingItem.title_ja %}
+                      <li class='Polaris-List__Item'>
+                        <a class='Polaris-Link' href='{{emailMarketingItem.path}}-ja/'>
+                          {{- emailMarketingItem.title_ja -}}
+                        </a>
+                      </li>
+                    {% endif %}
+                  {% endfor %}
+                </ul>
+              </div>
+              <div class='Polaris-Layout__Section Polaris-Layout__Section--oneHal'>
+                <h3 class='Polaris-Header-Title__SubTitle'>返品</h3>
+                <ul class='Polaris-List'>
+                  {% for returnsItem in returnsList %}
+                    {% if returnsItem.title_ja %}
+                      <li class='Polaris-List__Item'>
+                        <a class='Polaris-Link' href='{{returnsItem.path}}-ja/'>{{ returnsItem.title_ja }}</a>
+                      </li>
+                    {% endif %}
+                  {% endfor %}
+                </ul>
+              </div>
+              <div class='Polaris-Layout__Section Polaris-Layout__Section--oneHal'>
+                <h3 class='Polaris-Header-Title__SubTitle'>スタッフ注文通知</h3>
+                <ul class='Polaris-List'>
+                  {% for staffOrderNotificationsItem in staffOrderNotificationsList %}
+                    {% if staffOrderNotificationsItem.title_ja %}
+                      <li class='Polaris-List__Item'>
+                        <a class='Polaris-Link' href='{{staffOrderNotificationsItem.path}}-ja/'>
+                          {{- staffOrderNotificationsItem.title_ja -}}
+                        </a>
+                      </li>
+                    {% endif %}
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </body>
 </html>

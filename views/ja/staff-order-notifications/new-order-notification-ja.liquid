@@ -1,478 +1,513 @@
 {% capture email_title %}
-    セキュリティチェック
+  セキュリティチェック
 {% endcapture %}
 <!DOCTYPE html>
-<html lang="ja">
-    <head>
-  <title>{{ email_title }}</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta name="viewport" content="width=device-width">
+<html lang='ja'>
+  <head>
+    <title>{{ email_title }}</title>
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+    <meta name='viewport' content='width=device-width'>
 
-  <link rel="stylesheet" type="text/css" media="screen" href="/assets/admin/merchant_mailer/style.css">
-  <style data-premailer="ignore">
-    .button__cell { background: {{ shop.email_accent_color }}; }
-    a, a:hover, a:active, a:visited { color: {{ shop.email_accent_color }}; }
-    @media print{
-      body {
-        color: black !important;
+    <link rel='stylesheet' type='text/css' media='screen' href='/assets/admin/merchant_mailer/style.css'>
+    <style data-premailer='ignore'>
+      .button__cell { background: {{ shop.email_accent_color }}; }
+      a, a:hover, a:active, a:visited { color: {{ shop.email_accent_color }}; }
+      @media print{
+        body {
+          color: black !important;
+        }
+
+        .subtitle-lines,
+        .subtotal-line__title,
+        .subtotal-line__value {
+          padding: 0 !important;
+          margin: 0 !important;
+        }
+
+        .subtotal-table {
+          margin: 0 !important;
+        }
       }
+    </style>
+  </head>
 
-      .subtitle-lines,
-      .subtotal-line__title,
-      .subtotal-line__value {
-        padding: 0 !important;
-        margin: 0 !important;
-      }
-
-      .subtotal-table {
-        margin: 0 !important;
-      }
-    }
-  </style>
-</head>
-
-    <body>
-        <table class="row">
-            <tr class="mail-priority-indicator mail-priority-indicator--{% if fulfillment_aborted or has_high_risks? %}high{% else %}low{% endif %}">
-                <td></td>
-            </tr>
-        </table>
-        <table class="body">
-            <tr>
-                <td>
-                    {% if fulfillment_aborted %}
-                        <center>
-                            <table class="row banner-container banner-alert__table">
-    <tr>
-        <td class="banner-alert__cell">
-            <img src="{{ 'mailer/merchant/critical_alert.png' | cdn_asset_url }}" alt="Critical Alert" width="20px">
-        </td>
-        <td class="banner-description__cell">
-            <strong class="banner-alert__title">注文は自動で発送済みになりませんでした</strong>
-            高い不正注文のリスクが検出されました。この注文を発送する、またはこの注文の支払いを確定する前に、リスク分析を確認の上、この注文に不正がないかどうかご判断ください。
-        </td>
-    </tr>
-</table>
-
-                        </center>
-                    {% endif %}
-                    {% if has_high_risks? %}
-                        <center>
-                            <table class="row banner-container banner-alert__table">
-    <tr>
-        <td class="banner-alert__cell">
-            <img src="{{ 'mailer/merchant/critical_alert.png' | cdn_asset_url }}" alt="Critical Alert" width="20px">
-        </td>
-        <td class="banner-description__cell">
-            <strong class="banner-alert__title">不正注文のリスクが高いことが検出されました</strong>
-            この注文を発送する、またはこの注文の支払いを確定する前に、リスク分析を確認の上、この注文に不正がないかどうかご判断ください。
-        </td>
-    </tr>
-</table>
-
-                        </center>
-                    {% endif %}
-                    <table class="row">
-  <tr>
-    <td class="section__cell">
-      <center>
-        <table class="container section">
-          <tr>
-            <td>
-
-                        <table class="row content">
-  <tr>
-    <td class="content__cell {% if no_top_border == 'hide_border' %}no_top__border{% endif %}">
-      <center>
-        <table class="container">
-          <tr>
-            <td>
-
-                            <table class="row">
-                                <tr>
-                                    <td>
-                                        {% assign current_date = date | date: "%b %d" %}
-                                        {% assign current_time = date | date: "%l:%M %P" %}
-                                        {% if customer.name %}
-                                            {{ customer.name }}が{{ current_date }}の{{ current_time | strip }}に、{{ name }}の注文を行いました。
-                                        {% else %}
-                                            誰かが{{ current_date }}の{{ current_time | strip }}に、{{ name }}の注文を行いました。
-                                        {% endif %}
-                                        <table class="row actions" style="width: auto;">
-  <tr>
-    <td class="empty-line">&nbsp;</td>
-  </tr>
-    <tr>
-      <td class="actions__cell">
-        <table class="button main-action-cell">
-          <tr>
-            <td><a href="https://{{ shop.permanent_domain }}/admin/orders/{{ id }}" class="mail-button" style="margin-right:5px; color: black; background-color: #ffffff; border-radius: 4px; padding: 7px 15px; border-color: #8c9196; border-width: 1px 1px;">注文を表示する</a></td>
-          </tr>
-        </table>
-      </td>
-      <td class="actions__cell">
-        <table class="button main-action-cell">
-          <tr>
-            <td><a href="https://{{ shop.permanent_domain }}/admin/orders/{{ id }}/ship_next?utm_source=new-order&utm_medium=email&utm_campaign=automated" class="mail-button">配送ラベルを作成</a></td>
-          </tr>
-        </table>
-      </td>
-    </tr>
-</table>
-
-                                    </td>
-                                </tr>
-                            </table>
-
-            </td>
-          </tr>
-        </table>
-      </center>
-    </td>
-  </tr>
-</table>
-                        <table class="row content">
-  <tr>
-    <td class="content__cell {% if no_top_border == 'hide_border' %}no_top__border{% endif %}">
-      <center>
-        <table class="container">
-          <tr>
-            <td>
-
-                            <strong class="order-list__summary-title">注文概要</strong>
-                            <br>
-                            <br>
-
-<table class="row">
-  {% for line in subtotal_line_items %}
-  <tr class="order-list__item">
-    <td class="order-list__item__cell">
-      <table>
+  <body>
+    <table class='row'>
+      <tr class='mail-priority-indicator mail-priority-indicator--{% if fulfillment_aborted or has_high_risks? %}high{% else %}low{% endif %}'>
+        <td></td>
+      </tr>
+    </table>
+    <table class='body'>
+      <tr>
         <td>
-          {% if line.image %}
-            <img src="{{ line | img_url: 'compact_cropped' }}" align="left" width="60" height="60" class="order-list__product-image"/>
+          {% if fulfillment_aborted %}
+            <center>
+              <table class='row banner-container banner-alert__table'>
+                <tr>
+                  <td class='banner-alert__cell'>
+                    <img
+                      src='{{ 'mailer/merchant/critical_alert.png' | cdn_asset_url }}'
+                      alt='Critical Alert'
+                      width='20px'
+                    >
+                  </td>
+                  <td class='banner-description__cell'>
+                    <strong class='banner-alert__title'>注文は自動で発送済みになりませんでした</strong>
+                    高い不正注文のリスクが検出されました。この注文を発送する、またはこの注文の支払いを確定する前に、リスク分析を確認の上、この注文に不正がないかどうかご判断ください。
+                  </td>
+                </tr>
+              </table>
+            </center>
           {% endif %}
-        </td>
-        <td class="order-list__product-description-cell">
-          {% if line.quantity < line.quantity %}
-            {% capture line_display %} {{ line.quantity }} of {{ line.quantity }} {% endcapture %}
-          {% else %}
-            {% assign line_display = line.quantity  %}
+          {% if has_high_risks? %}
+            <center>
+              <table class='row banner-container banner-alert__table'>
+                <tr>
+                  <td class='banner-alert__cell'>
+                    <img
+                      src='{{ 'mailer/merchant/critical_alert.png' | cdn_asset_url }}'
+                      alt='Critical Alert'
+                      width='20px'
+                    >
+                  </td>
+                  <td class='banner-description__cell'>
+                    <strong class='banner-alert__title'>不正注文のリスクが高いことが検出されました</strong>
+                    この注文を発送する、またはこの注文の支払いを確定する前に、リスク分析を確認の上、この注文に不正がないかどうかご判断ください。
+                  </td>
+                </tr>
+              </table>
+            </center>
           {% endif %}
-
-          <span class="order-list__item-title">
-            {% if line.product.title == blank %}
-              {{ line.title }}</span><br/>
-            {% else %}
-              {{ line.product.title }}
-            {% endif %}
-          </span><br/>
-
-          {% if line.quantity %}
-            {% if line.original_line_price != line.final_line_price %}
-              <span><del class="order-list__item-original-price">{{ line.original_price | money }}</del></span>
-            {% endif %}
-             <span>{{ line.final_price | money }} × {{ line.quantity }} </span><br/>
-          {% endif %}
-
-          {% if line.variant.title != 'Default Title' %}
-            <span class="order-list__item-variant">{{ line.variant.title }}</span>
-
-            {% if line.sku != blank %}
-              <span class="order-list__item-variant">• </span>
-            {% endif %}
-          {% endif %}
-
-          {% if line.sku != blank %}
-            <span class="order-list__item-variant">SKU: {{ line.sku }}</span>
-          {% endif %}
-
-          {% if line.selling_plan_allocation != nil %}
-            <p class="order-list__item-variant">{{ line.selling_plan_allocation.selling_plan.name }}</p>
-          {% endif %}
-
-        </td>
-          <td class="order-list__price-cell">
-            <p class="order-list__item-price">
-              {% if line.final_line_price > 0 %}
-                {{ line.final_line_price | money }}
-              {% else %}
-                無料
-              {% endif %}
-            </p>
-          </td>
-      </table>
-    </td>
-  </tr>{% endfor %}
-</table>
-
-                            <table class="row subtotal-lines">
-  <tr>
-    <td>
-      <table class="row subtotal-table">
-
-
-        {% assign discount_value = 0 %}
-        {% for discount_application in discount_applications %}
-          {% if discount_application.target_selection == 'all' %}
-              {% assign discount_value = discount_application.total_allocated_amount %}
-          {% endif %}
-        {% endfor %}
-
-<tr class="subtotal-line">
-  <td class="subtotal-line__title">
-    <p>
-      {% if titleBold %}
-        <span><strong>小計</strong></span>
-      {% else %}
-        <span>小計</span>
-      {% endif %}
-    </p>
-  </td>
-  <td class="subtotal-line__value">
-    {% if valueBold %}
-      <strong>{{ subtotal_price | plus: discount_value | money }}</strong>
-    {% else %}
-      {{ subtotal_price | plus: discount_value | money }}
-    {% endif %}
-  </td>
-</tr>
-
-
-        {% for discount_application in discount_applications %}
-          {% if discount_application.target_selection == 'all' %}
-            {% capture discount_title %}
-              {% if discount_application.title %}
-                {{ discount_application.title | upcase }}
-              {% else %}
-                ディスカウント
-              {% endif %}
-            {% endcapture %}
-
-<tr class="subtotal-line">
-  <td class="subtotal-line__title">
-    <p>
-      {% if titleBold %}
-        <span><strong>ディスカウント</strong></span>
-      {% else %}
-        <span>ディスカウント</span>
-      {% endif %}
-        <span class="subtotal-line__discount">
-          <span class="subtotal-line__discount-title">{% if discount_title.size > 0 %}({{ discount_title | strip }}){% endif %}</span>
-        </span>
-    </p>
-  </td>
-  <td class="subtotal-line__value">
-    {% if valueBold %}
-      <strong>-{{ discount_application.total_allocated_amount | money }}</strong>
-    {% else %}
-      -{{ discount_application.total_allocated_amount | money }}
-    {% endif %}
-  </td>
-</tr>
-
-          {% endif %}
-        {% endfor %}
-
-        {% if delivery_method == 'pick-up' %}
-
-<tr class="subtotal-line">
-  <td class="subtotal-line__title">
-    <p>
-      {% if titleBold %}
-        <span><strong>受取</strong></span>
-      {% else %}
-        <span>受取</span>
-      {% endif %}
-    </p>
-  </td>
-  <td class="subtotal-line__value">
-    {% if valueBold %}
-      <strong>{{ shipping_price | money }}</strong>
-    {% else %}
-      {{ shipping_price | money }}
-    {% endif %}
-  </td>
-</tr>
-
-        {% else %}
-
-<tr class="subtotal-line">
-  <td class="subtotal-line__title">
-    <p>
-      {% if titleBold %}
-        <span><strong>配送</strong></span>
-      {% else %}
-        <span>配送</span>
-      {% endif %}
-        <span class="subtotal-line__discount">
-          <span class="subtotal-line__discount-title">{% if shipping_method.title.size > 0 %}({{ shipping_method.title }}){% endif %}</span>
-        </span>
-    </p>
-  </td>
-  <td class="subtotal-line__value">
-    {% if valueBold %}
-      <strong>{{ shipping_price | money }}</strong>
-    {% else %}
-      {{ shipping_price | money }}
-    {% endif %}
-  </td>
-</tr>
-
-        {% endif %}
-
-        {% for tax_line in tax_lines %}
-
-<tr class="subtotal-line">
-  <td class="subtotal-line__title">
-    <p>
-      {% if titleBold %}
-        <span><strong>税</strong></span>
-      {% else %}
-        <span>税</span>
-      {% endif %}
-        <span class="subtotal-line__discount">
-          <span class="subtotal-line__discount-title">{% if tax_line.title.size > 0 %}({{ tax_line.title }} {{ tax_line.rate | times: 100 }}%){% endif %}</span>
-        </span>
-    </p>
-  </td>
-  <td class="subtotal-line__value">
-    {% if valueBold %}
-      <strong>{{ tax_line.price | money }}</strong>
-    {% else %}
-      {{ tax_line.price | money }}
-    {% endif %}
-  </td>
-</tr>
-
-        {% endfor %}
-
-      </table>
-      <table class="row subtotal-table subtotal-table--total">
-
-<tr class="subtotal-line">
-  <td class="subtotal-line__title">
-    <p>
-      {% if titleBold %}
-        <span><strong>合計</strong></span>
-      {% else %}
-        <span>合計</span>
-      {% endif %}
-    </p>
-  </td>
-  <td class="subtotal-line__value">
-    {% if valueBold %}
-      <strong>{{ total_price | money_with_currency }}</strong>
-    {% else %}
-      {{ total_price | money_with_currency }}
-    {% endif %}
-  </td>
-</tr>
-
-      </table>
-    </td>
-  </tr>
-</table>
-
-
-            </td>
-          </tr>
-        </table>
-      </center>
-    </td>
-  </tr>
-</table>
-                        <table class="row content">
-  <tr>
-    <td class="content__cell {% if no_top_border == 'hide_border' %}no_top__border{% endif %}">
-      <center>
-        <table class="container">
-          <tr>
-            <td>
-
-                            {% if gateway %}
-                                <table class="row">
-                                    <tr>
-                                        <td class="customer-info__item customer-info__item--last">
-                                            <strong>支払い処理方法</strong>
-                                            <br>
-                                            <p>{{ gateway }}</p>
-                                        </td>
-                                    </tr>
-                                </table>
-                            {% endif %}
-                            {% if requires_shipping and shipping_address %}
-                                {% if shipping_methods.first %}
-                                    <br>
-                                    <table class="row">
+          <table class='row'>
+            <tr>
+              <td class='section__cell'>
+                <center>
+                  <table class='container section'>
+                    <tr>
+                      <td>
+                        <table class='row content'>
+                          <tr>
+                            <td class='content__cell {% if no_top_border == 'hide_border' %}no_top__border{% endif %}'>
+                              <center>
+                                <table class='container'>
+                                  <tr>
+                                    <td>
+                                      <table class='row'>
                                         <tr>
-                                            <td class="customer-info__item customer-info__item--last">
+                                          <td>
+                                            {% assign current_date = date | date: "%b %d" %}
+                                            {% assign current_time = date | date: "%l:%M %P" %}
+                                            {% if customer.name %}
+                                              {{ customer.name }}が{{ current_date }}の{{ current_time | strip }}に、
+                                              {{- name -}}
+                                              の注文を行いました。
+                                            {% else %}
+                                              誰かが{{ current_date }}の{{ current_time | strip }}に、
+                                              {{- name -}}
+                                              の注文を行いました。
+                                            {% endif %}
+                                            <table class='row actions' style='width: auto;'>
+                                              <tr>
+                                                <td class='empty-line'>&nbsp;</td>
+                                              </tr>
+                                              <tr>
+                                                <td class='actions__cell'>
+                                                  <table class='button main-action-cell'>
+                                                    <tr>
+                                                      <td>
+                                                        <a
+                                                          href='https://{{ shop.permanent_domain }}/admin/orders/{{ id }}'
+                                                          class='mail-button'
+                                                          style='margin-right:5px; color: black; background-color: #ffffff; border-radius: 4px; padding: 7px 15px; border-color: #8c9196; border-width: 1px 1px;'
+                                                          >注文を表示する</a
+                                                        >
+                                                      </td>
+                                                    </tr>
+                                                  </table>
+                                                </td>
+                                                <td class='actions__cell'>
+                                                  <table class='button main-action-cell'>
+                                                    <tr>
+                                                      <td>
+                                                        <a
+                                                          href='https://{{ shop.permanent_domain }}/admin/orders/{{ id }}/ship_next?utm_source=new-order&utm_medium=email&utm_campaign=automated'
+                                                          class='mail-button'
+                                                          >配送ラベルを作成</a
+                                                        >
+                                                      </td>
+                                                    </tr>
+                                                  </table>
+                                                </td>
+                                              </tr>
+                                            </table>
+                                          </td>
+                                        </tr>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                </table>
+                              </center>
+                            </td>
+                          </tr>
+                        </table>
+                        <table class='row content'>
+                          <tr>
+                            <td class='content__cell {% if no_top_border == 'hide_border' %}no_top__border{% endif %}'>
+                              <center>
+                                <table class='container'>
+                                  <tr>
+                                    <td>
+                                      <strong class='order-list__summary-title'>注文概要</strong>
+                                      <br>
+                                      <br>
+
+                                      <table class='row'>
+                                        {% for line in subtotal_line_items %}
+                                          <tr class='order-list__item'>
+                                            <td class='order-list__item__cell'>
+                                              <table>
+                                                <td>
+                                                  {% if line.image %}
+                                                    <img
+                                                      src='{{ line | img_url: 'compact_cropped' }}'
+                                                      align='left'
+                                                      width='60'
+                                                      height='60'
+                                                      class='order-list__product-image'
+                                                    >
+                                                  {% endif %}
+                                                </td>
+                                                <td class='order-list__product-description-cell'>
+                                                  {% if line.quantity < line.quantity %}
+                                                    {% capture line_display %}
+                                                      {{ line.quantity }} of {{ line.quantity }}
+                                                    {% endcapture %}
+                                                  {% else %}
+                                                    {% assign line_display = line.quantity %}
+                                                  {% endif %}
+
+                                                  {% if line.product.title == blank %}
+                                                    <span class='order-list__item-title'>{{ line.title }}</span><br>
+                                                  {% else %}
+                                                    <span class='order-list__item-title'>{{ line.product.title }}</span>
+                                                  {% endif %}
+                                                  <br>
+
+                                                  {% if line.quantity %}
+                                                    {% if line.original_line_price != line.final_line_price %}
+                                                      <span
+                                                        ><del class='order-list__item-original-price'>
+                                                          {{- line.original_price | money -}}
+                                                        </del></span
+                                                      >
+                                                    {% endif %}
+                                                    <span>{{ line.final_price | money }} × {{ line.quantity }} </span
+                                                    ><br>
+                                                  {% endif %}
+
+                                                  {% if line.variant.title != 'Default Title' %}
+                                                    <span class='order-list__item-variant'>
+                                                      {{- line.variant.title -}}
+                                                    </span>
+
+                                                    {% if line.sku != blank %}
+                                                      <span class='order-list__item-variant'>• </span>
+                                                    {% endif %}
+                                                  {% endif %}
+
+                                                  {% if line.sku != blank %}
+                                                    <span class='order-list__item-variant'>SKU: {{ line.sku }}</span>
+                                                  {% endif %}
+
+                                                  {% if line.selling_plan_allocation != nil %}
+                                                    <p class='order-list__item-variant'>
+                                                      {{ line.selling_plan_allocation.selling_plan.name }}
+                                                    </p>
+                                                  {% endif %}
+                                                </td>
+                                                <td class='order-list__price-cell'>
+                                                  <p class='order-list__item-price'>
+                                                    {% if line.final_line_price > 0 %}
+                                                      {{ line.final_line_price | money }}
+                                                    {% else %}
+                                                      無料
+                                                    {% endif %}
+                                                  </p>
+                                                </td>
+                                              </table>
+                                            </td>
+                                          </tr>
+                                        {%- endfor %}
+                                      </table>
+
+                                      <table class='row subtotal-lines'>
+                                        <tr>
+                                          <td>
+                                            <table class='row subtotal-table'>
+                                              {% assign discount_value = 0 %}
+                                              {% for discount_application in discount_applications %}
+                                                {% if discount_application.target_selection == 'all' %}
+                                                  {% assign discount_value = discount_application.total_allocated_amount %}
+                                                {% endif %}
+                                              {% endfor %}
+
+                                              <tr class='subtotal-line'>
+                                                <td class='subtotal-line__title'>
+                                                  <p>
+                                                    {% if titleBold %}
+                                                      <span><strong>小計</strong></span>
+                                                    {% else %}
+                                                      <span>小計</span>
+                                                    {% endif %}
+                                                  </p>
+                                                </td>
+                                                <td class='subtotal-line__value'>
+                                                  {% if valueBold %}
+                                                    <strong>{{ subtotal_price | plus: discount_value | money }}</strong>
+                                                  {% else %}
+                                                    {{ subtotal_price | plus: discount_value | money }}
+                                                  {% endif %}
+                                                </td>
+                                              </tr>
+
+                                              {% for discount_application in discount_applications %}
+                                                {% if discount_application.target_selection == 'all' %}
+                                                  {% capture discount_title %}
+                                                    {% if discount_application.title %}
+                                                      {{ discount_application.title | upcase }}
+                                                    {% else %}
+                                                      ディスカウント
+                                                    {% endif %}
+                                                  {% endcapture %}
+
+                                                  <tr class='subtotal-line'>
+                                                    <td class='subtotal-line__title'>
+                                                      <p>
+                                                        {% if titleBold %}
+                                                          <span><strong>ディスカウント</strong></span>
+                                                        {% else %}
+                                                          <span>ディスカウント</span>
+                                                        {% endif %}
+                                                        <span class='subtotal-line__discount'>
+                                                          <span class='subtotal-line__discount-title'>
+                                                            {%- if discount_title.size > 0 -%}
+                                                              ({{ discount_title | strip }})
+                                                            {%- endif -%}
+                                                          </span>
+                                                        </span>
+                                                      </p>
+                                                    </td>
+                                                    <td class='subtotal-line__value'>
+                                                      {% if valueBold %}
+                                                        <strong
+                                                          >-{{ discount_application.total_allocated_amount | money -}}
+                                                        </strong>
+                                                      {% else %}
+                                                        -{{ discount_application.total_allocated_amount | money }}
+                                                      {% endif %}
+                                                    </td>
+                                                  </tr>
+                                                {% endif %}
+                                              {% endfor %}
+
+                                              {% if delivery_method == 'pick-up' %}
+                                                <tr class='subtotal-line'>
+                                                  <td class='subtotal-line__title'>
+                                                    <p>
+                                                      {% if titleBold %}
+                                                        <span><strong>受取</strong></span>
+                                                      {% else %}
+                                                        <span>受取</span>
+                                                      {% endif %}
+                                                    </p>
+                                                  </td>
+                                                  <td class='subtotal-line__value'>
+                                                    {% if valueBold %}
+                                                      <strong>{{ shipping_price | money }}</strong>
+                                                    {% else %}
+                                                      {{ shipping_price | money }}
+                                                    {% endif %}
+                                                  </td>
+                                                </tr>
+                                              {% else %}
+                                                <tr class='subtotal-line'>
+                                                  <td class='subtotal-line__title'>
+                                                    <p>
+                                                      {% if titleBold %}
+                                                        <span><strong>配送</strong></span>
+                                                      {% else %}
+                                                        <span>配送</span>
+                                                      {% endif %}
+                                                      <span class='subtotal-line__discount'>
+                                                        <span class='subtotal-line__discount-title'>
+                                                          {%- if shipping_method.title.size > 0 -%}
+                                                            ({{ shipping_method.title }})
+                                                          {%- endif -%}
+                                                        </span>
+                                                      </span>
+                                                    </p>
+                                                  </td>
+                                                  <td class='subtotal-line__value'>
+                                                    {% if valueBold %}
+                                                      <strong>{{ shipping_price | money }}</strong>
+                                                    {% else %}
+                                                      {{ shipping_price | money }}
+                                                    {% endif %}
+                                                  </td>
+                                                </tr>
+                                              {% endif %}
+
+                                              {% for tax_line in tax_lines %}
+                                                <tr class='subtotal-line'>
+                                                  <td class='subtotal-line__title'>
+                                                    <p>
+                                                      {% if titleBold %}
+                                                        <span><strong>税</strong></span>
+                                                      {% else %}
+                                                        <span>税</span>
+                                                      {% endif %}
+                                                      <span class='subtotal-line__discount'>
+                                                        <span class='subtotal-line__discount-title'>
+                                                          {%- if tax_line.title.size > 0 -%}
+                                                            ({{ tax_line.title }}
+                                                            {{ tax_line.rate | times: 100 }}%)
+                                                          {%- endif -%}
+                                                        </span>
+                                                      </span>
+                                                    </p>
+                                                  </td>
+                                                  <td class='subtotal-line__value'>
+                                                    {% if valueBold %}
+                                                      <strong>{{ tax_line.price | money }}</strong>
+                                                    {% else %}
+                                                      {{ tax_line.price | money }}
+                                                    {% endif %}
+                                                  </td>
+                                                </tr>
+                                              {% endfor %}
+                                            </table>
+                                            <table class='row subtotal-table subtotal-table--total'>
+                                              <tr class='subtotal-line'>
+                                                <td class='subtotal-line__title'>
+                                                  <p>
+                                                    {% if titleBold %}
+                                                      <span><strong>合計</strong></span>
+                                                    {% else %}
+                                                      <span>合計</span>
+                                                    {% endif %}
+                                                  </p>
+                                                </td>
+                                                <td class='subtotal-line__value'>
+                                                  {% if valueBold %}
+                                                    <strong>{{ total_price | money_with_currency }}</strong>
+                                                  {% else %}
+                                                    {{ total_price | money_with_currency }}
+                                                  {% endif %}
+                                                </td>
+                                              </tr>
+                                            </table>
+                                          </td>
+                                        </tr>
+                                      </table>
+                                    </td>
+                                  </tr>
+                                </table>
+                              </center>
+                            </td>
+                          </tr>
+                        </table>
+                        <table class='row content'>
+                          <tr>
+                            <td class='content__cell {% if no_top_border == 'hide_border' %}no_top__border{% endif %}'>
+                              <center>
+                                <table class='container'>
+                                  <tr>
+                                    <td>
+                                      {% if gateway %}
+                                        <table class='row'>
+                                          <tr>
+                                            <td class='customer-info__item customer-info__item--last'>
+                                              <strong>支払い処理方法</strong>
+                                              <br>
+                                              <p>{{ gateway }}</p>
+                                            </td>
+                                          </tr>
+                                        </table>
+                                      {% endif %}
+                                      {% if requires_shipping and shipping_address %}
+                                        {% if shipping_methods.first %}
+                                          <br>
+                                          <table class='row'>
+                                            <tr>
+                                              <td class='customer-info__item customer-info__item--last'>
                                                 <strong>配達方法</strong>
                                                 <br>
                                                 {% for shipping_method in shipping_methods %}
-                                                    <p>{{ shipping_method.title }}</p>
+                                                  <p>{{ shipping_method.title }}</p>
                                                 {% endfor %}
-                                            </td>
-                                        </tr>
-                                    </table>
-                                {% endif %}
-                                <br>
-                                <table class="row">
-                                    <tr>
-                                        <td class="customer-info__item customer-info__item--last">
-                                            <strong>配送先住所</strong>
-                                            <br>
-                                            <p>
-                                                {{ shipping_address.name }}<br>
-                                                {{ shipping_address.street }}<br>
+                                              </td>
+                                            </tr>
+                                          </table>
+                                        {% endif %}
+                                        <br>
+                                        <table class='row'>
+                                          <tr>
+                                            <td class='customer-info__item customer-info__item--last'>
+                                              <strong>配送先住所</strong>
+                                              <br>
+                                              <p>
+                                                {{ shipping_address.name -}}
+                                                <br>
+                                                {{ shipping_address.street -}}
+                                                <br>
                                                 {{ shipping_address.city }},
                                                 {{ shipping_address.province }}
-                                                {{ shipping_address.zip }}<br>
-                                                {{ shipping_address.country }}<br>
-                                                {{ shipping_address.phone }}<br>
-                                            </p>
-                                        </td>
-                                    </tr>
+                                                {{ shipping_address.zip -}}
+                                                <br>
+                                                {{ shipping_address.country -}}
+                                                <br>
+                                                {{ shipping_address.phone -}}
+                                                <br>
+                                              </p>
+                                            </td>
+                                          </tr>
+                                        </table>
+                                      {% endif %}
+                                    </td>
+                                  </tr>
                                 </table>
-                            {% endif %}
-
-            </td>
-          </tr>
-        </table>
-      </center>
-    </td>
-  </tr>
-</table>
-
-            </td>
-          </tr>
-        </table>
-      </center>
-    </td>
-  </tr>
-</table>
-                    <footer class="no-print">
-  <br>
-  <table border="0" cellpadding="0" cellspacing="0" class="mail-footer">
-    <tbody>
-      <tr>
-        <td align="center" valign="bottom">
-          <img src="{{ 'mailer/merchant/shopify_logo.png' | cdn_asset_url }}" alt="Shopify" width="89">
-        </td>
-      </tr>
-      <tr>
-        <td align="center">
-          <p><span class="apple-link">151 O'Connor Street, Ground floor, Ottawa, ON, K2P 2L8</span></p>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</footer>
-
-<img class="no-print" src="{{ 'notifications/spacer.png' | shopify_asset_url }}" class="spacer" height="1" />
-
-                </td>
+                              </center>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </center>
+              </td>
             </tr>
-        </table>
-    </body>
+          </table>
+          <footer class='no-print'>
+            <br>
+            <table border='0' cellpadding='0' cellspacing='0' class='mail-footer'>
+              <tbody>
+                <tr>
+                  <td align='center' valign='bottom'>
+                    <img src='{{ 'mailer/merchant/shopify_logo.png' | cdn_asset_url }}' alt='Shopify' width='89'>
+                  </td>
+                </tr>
+                <tr>
+                  <td align='center'>
+                    <p><span class='apple-link'>151 O'Connor Street, Ground floor, Ottawa, ON, K2P 2L8</span></p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </footer>
+
+          <img class='no-print' src='{{ 'notifications/spacer.png' | shopify_asset_url }}' class='spacer' height='1'>
+        </td>
+      </tr>
+    </table>
+  </body>
 </html>
