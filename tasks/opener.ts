@@ -25,6 +25,7 @@ const openUrl = () => {
   if (FLAG === 'admin') {
     targetUrl = `${ADMIN_URL}settings/notifications`
   }
+  // Order
   if (FLAG === 'order_confirmation') {
     targetUrl = `${ADMIN_URL}email_templates/order_confirmation/edit`
   }
@@ -66,6 +67,67 @@ const openUrl = () => {
   }
   if (FLAG === 'pending_payment_success') {
     targetUrl = `${ADMIN_URL}email_templates/pending_payment_success/edit`
+  }
+  // Shipping
+  if (FLAG === 'fulfillment_request') {
+    targetUrl = `${ADMIN_URL}email_templates/fulfillment_request/edit`
+  }
+  if (FLAG === 'shipping_confirmation') {
+    targetUrl = `${ADMIN_URL}email_templates/shipping_confirmation/edit`
+  }
+  if (FLAG === 'shipping_update') {
+    targetUrl = `${ADMIN_URL}email_templates/shipping_update/edit`
+  }
+  if (FLAG === 'shipment_delivered') {
+    targetUrl = `${ADMIN_URL}email_templates/shipment_delivered/edit`
+  }
+  // Local delivery
+  if (FLAG === 'local_out_for_delivery') {
+    targetUrl = `${ADMIN_URL}email_templates/local_out_for_delivery/edit`
+  }
+  if (FLAG === 'local_delivered') {
+    targetUrl = `${ADMIN_URL}email_templates/local_delivered/edit`
+  }
+  if (FLAG === 'local_missed_delivery') {
+    targetUrl = `${ADMIN_URL}email_templates/local_missed_delivery/edit`
+  }
+  // Local pickup
+  if (FLAG === 'ready_for_pickup') {
+    targetUrl = `${ADMIN_URL}email_templates/ready_for_pickup/edit`
+  }
+  if (FLAG === 'pickup_receipt') {
+    targetUrl = `${ADMIN_URL}email_templates/pickup_receipt/edit`
+  }
+  // Customer
+  if (FLAG === 'customer_account_activate') {
+    targetUrl = `${ADMIN_URL}email_templates/customer_account_activate/edit`
+  }
+  if (FLAG === 'customer_account_welcome') {
+    targetUrl = `${ADMIN_URL}email_templates/customer_account_welcome/edit`
+  }
+  if (FLAG === 'customer_account_reset') {
+    targetUrl = `${ADMIN_URL}email_templates/customer_account_reset/edit`
+  }
+  if (FLAG === 'company_contact_welcome_email') {
+    targetUrl = `${ADMIN_URL}email_templates/company_contact_welcome_email/edit`
+  }
+  if (FLAG === 'contact_buyer') {
+    targetUrl = `${ADMIN_URL}email_templates/contact_buyer/edit`
+  }
+  // Email marketing
+  if (FLAG === 'customer_marketing_confirmation') {
+    targetUrl = `${ADMIN_URL}email_templates/customer_marketing_confirmation/edit`
+  }
+  // Returns
+  if (FLAG === 'return_created') {
+    targetUrl = `${ADMIN_URL}email_templates/return_created/edit`
+  }
+  if (FLAG === 'return_label_notification') {
+    targetUrl = `${ADMIN_URL}email_templates/return_label_notification/edit`
+  }
+  // Staff order notifications
+  if (FLAG === 'new_order_notification') {
+    targetUrl = `${ADMIN_URL}email_templates/new_order_notification/edit`
   }
   // Open a URL
   console.log(`Open: ${blue}${targetUrl}${reset}`);

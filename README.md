@@ -83,6 +83,70 @@ Open Shopify admin.
 yarn admin
 ```
 
+### Orders command
+
+Open order notification pages.
+
+```bash
+yarn orders
+```
+
+### Shipping command
+
+Open shipping notification pages.
+
+```bash
+yarn shipping
+```
+
+### Local delivery command
+
+Open local delivery notification pages.
+
+```bash
+yarn localDelivery
+```
+
+### Local pickup command
+
+Open local pickup notification pages.
+
+```bash
+yarn localPickup
+```
+
+### Customer command
+
+Open customer notification pages.
+
+```bash
+yarn customer
+```
+
+### Email marketing command
+
+Open email marketing notification pages.
+
+```bash
+yarn emailMarketing
+```
+
+### Returns command
+
+Open returns notification pages.
+
+```bash
+yarn returns
+```
+
+### Staff order notifications command
+
+Open staff order notification pages.
+
+```bash
+yarn staffOrderNotifications
+```
+
 ### Lint command
 
 Lint this project code.
