@@ -4,7 +4,7 @@
  * @returns { string } - Formatted url
  */
 
- const cdnAssetUrl = (url: string): string => {
+const cdnAssetUrl = (url: string): string => {
   return `/${url}`;
 };
 

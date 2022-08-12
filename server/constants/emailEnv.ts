@@ -126,8 +126,8 @@ const emailEnv = {
     deliveries: [
       {
         shopify_label: 'shopify_label',
-        tracking_url: '/'
-      }
+        tracking_url: '/',
+      },
     ],
   },
   return_line_items: ItemArray,
@@ -144,8 +144,8 @@ const emailEnv = {
   gift_card: {
     balance: 100,
     customer: {
-      last_name: 'Smith'
-    }
+      last_name: 'Smith',
+    },
   },
   // Shipping info
   shipping_price: 10.0,
@@ -201,7 +201,7 @@ const emailEnv = {
   email: 'example@xxxxx.com',
   fulfillment: {
     item_count: 3,
-    created_at: "2022-06-15 17:08:30 -0400",
+    created_at: '2022-06-15 17:08:30 -0400',
     fulfillment_line_items: [
       {
         quantity: 2,
@@ -221,12 +221,13 @@ const emailEnv = {
           product: {
             title: 'Mid-century lounger ',
           },
-        }
-      }
+        },
+      },
     ],
-    tracking_company: "Canada Post",
-    tracking_number: "01189998819991197253",
-    tracking_url: "https://www.canadapost.ca/track-reperage/en#/search?searchFor=01189998819991197253"
+    tracking_company: 'Canada Post',
+    tracking_number: '01189998819991197253',
+    tracking_url:
+      'https://www.canadapost.ca/track-reperage/en#/search?searchFor=01189998819991197253',
   },
   // Location info
   location: {
@@ -236,7 +237,7 @@ const emailEnv = {
     city: 'Ottawa',
     province: 'Ontario',
     zip: 'K1N5T5',
-  }
+  },
 };
 
 export { emailEnv };

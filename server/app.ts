@@ -9,6 +9,7 @@ import { paymentIconPngUrl } from './filters/paymentIconPngUrl';
 import { money } from './filters/money';
 import { moneyWithCurrency } from './filters/moneyWithCurrency';
 import { moneyWithoutTrailingZeros } from './filters/moneyWithoutTrailingZeros';
+import { shopCurrency, shopLocale } from './constants/shopEnv';
 
 import type { Address } from './types/address';
 
@@ -49,23 +50,25 @@ engine.registerFilter('format_address', (address: Address) =>
 engine.registerFilter('shopify_asset_url', (url: string) =>
   shopifyAssetUrl(url),
 );
-engine.registerFilter('cdn_asset_url', (url: string) =>
-cdnAssetUrl(url),
-);
+engine.registerFilter('cdn_asset_url', (url: string) => cdnAssetUrl(url));
 engine.registerFilter('payment_icon_png_url', (payment: string) =>
   paymentIconPngUrl(payment),
 );
-engine.registerFilter('money', (price: number) => money(price, '$'));
-engine.registerFilter('money_with_currency', (price: number) =>
-  moneyWithCurrency(price, '$', 'CAD'),
+engine.registerFilter('money', (price: number) =>
+  money(price, shopLocale, shopCurrency),
 );
-engine.registerFilter('money_without_trailing_zeros', (price: number) => moneyWithoutTrailingZeros(price, '$'));
+engine.registerFilter('money_with_currency', (price: number) =>
+  moneyWithCurrency(price, shopLocale, shopCurrency),
+);
+engine.registerFilter('money_without_trailing_zeros', (price: number) =>
+  moneyWithoutTrailingZeros(price, shopLocale, shopCurrency),
+);
 
 // Define routes
 app.use('/', router);
 app.use(express.static('public'));
 
-// Error
+// Error handling
 app.use((req, res) => {
   res.status(404).send(`Not found: ${req.path}`);
 });
@@ -75,8 +78,10 @@ app.use(
     err: { stack: string },
     _req: Request,
     res: Response,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     _next: NextFunction,
   ) => {
+    // eslint-disable-next-line no-console
     console.error(err.stack);
     res.status(500).send('Internal Server Error!');
   },
