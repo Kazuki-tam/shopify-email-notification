@@ -13,23 +13,33 @@
   <p>販売元: {{ line.line_item.vendor }}</p>
 {% endfor %}
 {% if shipping_address %}
-<br>
-<p><strong>配送先住所:</strong></p>
-<p>{{ shipping_address.name }}{% if shipping_address.company %}
-  {{ shipping_address.company }}{% endif %}</p>
-<p>{{ shipping_address.address1 }}</p>
-<p>{{ shipping_address.address2 }}</p>
-<p>{{ shipping_address.city }}, {{ shipping_address.province }}</p>
-<p>{{ shipping_address.zip }}</p>
-<p>{{ shipping_address.country }}</p>
-{% if shipping_address.phone %}<p>電話番号: {{ shipping_address.phone }}</p>{% endif %}
+  <br>
+  <p><strong>配送先住所:</strong></p>
+  <p>
+    {{ shipping_address.name -}}
+    {%- if shipping_address.company %}
+      {{ shipping_address.company -}}
+    {%- endif %}
+  </p>
+  <p>{{ shipping_address.address1 }}</p>
+  <p>{{ shipping_address.address2 }}</p>
+  <p>{{ shipping_address.city }}, {{ shipping_address.province }}</p>
+  <p>{{ shipping_address.zip }}</p>
+  <p>{{ shipping_address.country }}</p>
+  {% if shipping_address.phone -%}
+    <p>電話番号: {{ shipping_address.phone }}</p>
+  {%- endif %}
 {% endif %}
 <br>
 <p><strong>配送方法:</strong></p>
-<p>{% if shipping_method %}{{ shipping_method.title }}{% else %}なし{% endif %}</p>
+<p>
+  {% if shipping_method %}{{ shipping_method.title }}{% else %}なし{% endif %}
+</p>
 <br>
 <p><strong>追跡番号:</strong></p>
-<p>{% if fulfillment.tracking_number %}{{ fulfillment.tracking_number }}{% else %}なし{% endif %}</p>
+<p>
+  {% if fulfillment.tracking_number %}{{ fulfillment.tracking_number }}{% else %}なし{% endif %}
+</p>
 <br>
 <p><strong>お客様のメールアドレス:</strong></p>
 <p>{{ email }}</p>

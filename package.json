@@ -14,7 +14,9 @@
     "lint:fix": "npm-run-all eslint:fix format",
     "checkTypes": "tsc --noEmit",
     "checkLicense": "license-checker --production",
-    "format": "prettier --write --plugin-search-dir=. 'server/**/*.{js,ts}'",
+    "format": "npm-run-all --parallel format:*",
+    "format:server": "prettier --write --plugin-search-dir=. 'server/**/*.{js,ts}'",
+    "format:views": "prettier --write --plugin-search-dir=. 'views/**/*.liquid'",
     "eslint": "eslint 'server**/*.{js,ts}'",
     "eslint:fix": "eslint --fix 'server/**/*.{js,ts}'",
     "admin": "FLAG=admin ts-node tasks/opener",
@@ -61,6 +63,7 @@
     "postInstall": "typesync"
   },
   "devDependencies": {
+    "@shopify/prettier-plugin-liquid": "^0.2.1",
     "@types/browser-sync": "^3001.0.28-alpha",
     "@types/eslint": "^8.4.5",
     "@types/express": "^4.17.13",
