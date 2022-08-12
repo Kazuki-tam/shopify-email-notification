@@ -1,4 +1,4 @@
-import { paymentIconPngUrl } from "../paymentIconPngUrl";
+import { paymentIconPngUrl } from '../paymentIconPngUrl';
 
 /**
  * Shopify payment_icon_png_url filter test

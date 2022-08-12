@@ -1,4 +1,4 @@
-import { shopifyAssetUrl } from "../shopifyAssetUrl";
+import { shopifyAssetUrl } from '../shopifyAssetUrl';
 
 /**
  * Shopify shopify_asset_url filter test
@@ -6,5 +6,7 @@ import { shopifyAssetUrl } from "../shopifyAssetUrl";
  */
 
 test('Generates a path for a globally accessible Shopify asset', () => {
-  expect(shopifyAssetUrl('notifications/spacer.png')).toBe('/assets/notifications/spacer.png');
+  expect(shopifyAssetUrl('notifications/spacer.png')).toBe(
+    '/assets/notifications/spacer.png',
+  );
 });

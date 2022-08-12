@@ -10,7 +10,7 @@
     "start:sync": "browser-sync start --config bs-config.js",
     "unit": "jest",
     "unit:watch": "jest --watch",
-    "lint": "npm-run-all eslint checkTypes checkLicense",
+    "lint": "npm-run-all eslint checkTypes",
     "lint:fix": "npm-run-all eslint:fix format",
     "checkTypes": "tsc --noEmit",
     "checkLicense": "license-checker --production",
