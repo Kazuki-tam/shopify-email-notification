@@ -68,17 +68,17 @@ router.get('/orders/:name', (req, res) => {
 });
 
 // Returns
-router.get('/returns/:name', function (req, res) {
+router.get('/returns/:name', (req, res) => {
   res.render(req.params.name, emailEnv);
 });
 
 // Shipping
-router.get('/shipping/:name', function (req, res) {
+router.get('/shipping/:name', (req, res) => {
   res.render(req.params.name, emailEnv);
 });
 
 // Staff order notifications
-router.get('/staff-order-notifications/:name', function (req, res) {
+router.get('/staff-order-notifications/:name', (req, res) => {
   res.render(req.params.name, emailEnv);
 });
 
