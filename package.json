@@ -1,6 +1,6 @@
 {
   "name": "shopify-email-notification",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "shopify-email-notification is a template repository for email notifications.",
   "author": "Kazuki Yonemoto (https://dev.to/tim_yone)",
   "license": "MIT",
@@ -58,8 +58,9 @@
     "returns": "npm-run-all --parallel 'returns:*'",
     "returns:returnCreated": "FLAG=return_created ts-node tasks/opener",
     "returns:returnLabelNotification": "FLAG=return_label_notification ts-node tasks/opener",
-    "staffOrderNotifications": "npm-run-all --parallel 'staffOrderNotifications:*'",
-    "staffOrderNotifications:new_order_notification": "FLAG=new_order_notification ts-node tasks/opener",
+    "returns:returnRequested": "FLAG=return_requested ts-node tasks/opener",
+    "returns:returnApproved": "FLAG=return_approved ts-node tasks/opener",
+    "returns:returnDeclined": "FLAG=return_declined ts-node tasks/opener",
     "postInstall": "typesync"
   },
   "devDependencies": {

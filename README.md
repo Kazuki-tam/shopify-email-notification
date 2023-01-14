@@ -2,8 +2,6 @@
 shopify-email-notification is a template repository for email notifications.
  This template makes it easy to customize notification files at local.
 
- Note: This project is still in development.🧑🏻‍💻
-
 ## Status
 
 [![Release (latest by date)](https://img.shields.io/github/v/release/Kazuki-tam/shopify-email-notification)](https://github.com/Kazuki-tam/shopify-email-notification/releases/tag/v0.0.1)
@@ -23,7 +21,7 @@ shopify-email-notification is a template repository for email notifications.
 - Built in useful commands
 
 ## Requirements
-- [Node v16+](https://nodejs.org/en/)
+- [Node v16.17.0 or higher](https://nodejs.org/en/)
 - [Shopify store](https://shopify.dev/themes/tools/development-stores#create-a-development-store-for-a-client)
 
 ## Main dependencies
