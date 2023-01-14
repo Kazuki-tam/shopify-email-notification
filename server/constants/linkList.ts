@@ -38,13 +38,13 @@ const linkList = [
   {
     category: 'orders',
     title_en: 'Abandoned POS checkout',
-    title_ja: 'POSでのカゴ落ち',
+    title_ja: 'POSでのチェックアウト離脱',
     path: '/orders/buy-online',
   },
   {
     category: 'orders',
     title_en: 'Abandoned checkout',
-    title_ja: 'カゴ落ち',
+    title_ja: 'チェックアウト離脱',
     path: '/orders/abandoned-checkout-notification',
   },
   {
@@ -140,7 +140,7 @@ const linkList = [
   {
     category: 'local_pickup',
     title_en: 'Picked up',
-    title_ja: '店舗受け取り済み',
+    title_ja: '店頭受取済み',
     path: '/local-pickup/pickup-receipt',
   },
   {
@@ -181,27 +181,33 @@ const linkList = [
   },
   {
     category: 'returns',
-    title_en: 'Return instructions with label/tracking',
-    title_ja: 'ラベル/追跡情報が付いた返品',
+    title_en: 'Return label/tracking for a return',
+    title_ja: '返品の返品用ラベル/追跡品',
     path: '/returns/return-created',
   },
   {
     category: 'returns',
-    title_en: 'Return label only',
-    title_ja: '返品用ラベルのみ',
+    title_en: 'Return label for an order',
+    title_ja: '注文の返品用ラベル',
     path: '/returns/return-label-notification',
   },
   {
     category: 'returns',
-    title_en: 'Return label only',
-    title_ja: '返品用ラベルのみ',
-    path: '/returns/return-label-notification',
+    title_en: 'Return request confirmation',
+    title_ja: '返品リクエストの確認',
+    path: '/returns/return_requested',
   },
   {
-    category: 'staff_order_notifications',
-    title_en: 'New order',
-    title_ja: '新しい注文',
-    path: '/staff-order-notifications/new-order-notification',
+    category: 'returns',
+    title_en: 'Return request approved',
+    title_ja: '返品リクエストが承認されました',
+    path: '/returns/return_approved',
+  },
+  {
+    category: 'returns',
+    title_en: 'Return request declined',
+    title_ja: '返品リクエストが拒否されました',
+    path: '/returns/return_declined',
   },
 ];
 

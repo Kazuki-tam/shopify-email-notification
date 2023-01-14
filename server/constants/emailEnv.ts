@@ -127,6 +127,11 @@ const emailEnv = {
       {
         shopify_label: 'shopify_label',
         tracking_url: '/',
+        carrier_name: "Sample",
+        tracking_number: 123456,
+        return_label: {
+          public_file_url: "/"
+        }
       },
     ],
   },

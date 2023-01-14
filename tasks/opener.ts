@@ -125,9 +125,14 @@ const openUrl = () => {
   if (FLAG === 'return_label_notification') {
     targetUrl = `${ADMIN_URL}email_templates/return_label_notification/edit`
   }
-  // Staff order notifications
-  if (FLAG === 'new_order_notification') {
-    targetUrl = `${ADMIN_URL}email_templates/new_order_notification/edit`
+  if (FLAG === 'return_requested') {
+    targetUrl = `${ADMIN_URL}email_templates/return_requested/edit`
+  }
+  if (FLAG === 'return_approved') {
+    targetUrl = `${ADMIN_URL}email_templates/return_approved/edit`
+  }
+  if (FLAG === 'return_declined') {
+    targetUrl = `${ADMIN_URL}email_templates/return_declined/edit`
   }
   // Open a URL
   console.log(`Open: ${blue}${targetUrl}${reset}`);

@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ja">
+  {%- assign return_delivery_first = return.deliveries | first -%}
+  {%- assign public_file_url = return_delivery_first.return_label.public_file_url -%}
+  {% if order.customer_order_url %}
+    {%- assign order_details_url = order.customer_order_url -%}
+  {% else %}
+    {%- assign order_details_url = order.order_status_url -%}
+  {% endif %}
+  <head>
+    <title>{{ email_title }}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/assets/notifications/styles.css">
+    <style>
+      .button__cell {
+        background: {{ shop.email_accent_color }}
+        ;
+      }
+      a,
+      a:hover,
+      a:active,
+      a:visited {
+        color: {{ shop.email_accent_color }}
+        ;
+      }
+    </style>
+  </head>
+
+  <body>
+    <table class="body">
+      <tr>
+        <td>
+          <table class="header row">
+            <tr>
+              <td class="header__cell">
+                <center>
+
+                  <table class="container">
+                    <tr>
+                      <td>
+
+                        <table class="row">
+                          <tr>
+                            <td class="shop-name__cell">
+                              {%- if shop.email_logo_url %}
+                                <img
+                                  src="{{shop.email_logo_url}}"
+                                  alt="{{ shop.name }}"
+                                  width="{{ shop.email_logo_width }}">
+                              {%- else %}
+                                <h1 class="shop-name__text">
+                                  <a href="{{shop.url}}">{{ shop.name }}</a>
+                                </h1>
+                              {%- endif %}
+                            </td>
+
+                            <td class="order-number__cell">
+                              <span class="order-number__text">
+                                注文 ({{ order.name }})
+                              </span>
+                            </td>
+                          </tr>
+                        </table>
+
+                      </td>
+                    </tr>
+                  </table>
+
+                </center>
+              </td>
+            </tr>
+          </table>
+
+          <table class="row content">
+            <tr>
+              <td class="content__cell">
+                <center>
+                  <table class="container">
+                    <tr>
+                      <td>
+
+                        <h2>返品が承認されました</h2>
+                        <p class="return-approved__body">
+                          {% if return_delivery_first.type == 'manual' %}
+                            返品配送ラベルをお送りしました。まもなくラベルをお受け取りいただけます。返送配送ラベルが届いたら、指示に従って返品を完了してください。
+                          {% elsif return_delivery_first.type == 'shopify_label' %}
+                            {% if public_file_url != blank and public_file_url.size > 0 %}
+                              返品配送ラベルを印刷して、返品アイテムが入ったパッケージに貼り付けます。
+                            {% else %}
+                              返品配送ラベルをお送りしました。まもなくラベルをお受け取りいただけます。返送配送ラベルが届いたら、指示に従って返品を完了してください。
+                            {% endif %}
+                          {% else %}
+                            返品を完了するための追加情報を送信します。
+                          {% endif %}
+                        </p>
+                        {% if return_delivery_first.type == 'shopify_label' and public_file_url != blank and public_file_url.size > 0 %}
+                          <table class="row actions">
+                            <tr>
+                              <td class="empty-line">&nbsp;</td>
+                            </tr>
+                            <tr>
+                              <td class="actions__cell">
+                                <table class="button main-action-cell">
+                                  <tr>
+                                    <td class="button__cell">
+                                      <a
+                                        attr-link="{{ public_file_url }}"
+                                        href="{{ public_file_url }}"
+                                        class="button__text">配送ラベルを印刷する</a>
+                                    </td>
+                                  </tr>
+                                </table>
+                                <table class="actions__cell">
+                                  <tr>
+                                    <td class="button__cell">
+                                      <a href="{{ order_details_url }}" class="button__text return__main-button">注文を表示する</a>
+                                    </td>
+                                  </tr>
+                                </table>
+                              </td>
+                            </tr>
+                          </table>
+
+                        {% else %}
+                          <table class="row actions">
+                            <tr>
+                              <td class="empty-line">&nbsp;</td>
+                            </tr>
+                            <tr>
+                              <td class="actions__cell">
+                                <table class="button main-action-cell">
+                                  <tr>
+                                    <td class="button__cell">
+                                      <a href="{{ order_details_url }}" class="button__text return__main-button">注文を表示する</a>
+                                    </td>
+                                  </tr>
+                                </table>
+                              </td>
+                            </tr>
+                          </table>
+
+                        {% endif %}
+
+                      </td>
+                    </tr>
+                  </table>
+                </center>
+              </td>
+            </tr>
+          </table>
+          <table class="row section">
+            <tr>
+              <td class="section__cell">
+                <center>
+                  <table class="container">
+                    <tr>
+                      <td>
+                        <h3>返品のサマリー</h3>
+                      </td>
+                    </tr>
+                  </table>
+                  <table class="container">
+                    <tr>
+                      <td>
+
+                        <table class="row">
+                          {% for line_item in return.line_items %}
+                            <tr class="order-list__item">
+                              <td class="order-list__item__cell">
+                                <table>
+                                  <td>
+                                    {% if line_item.image %}
+                                      <img
+                                        src="{{ line_item | img_url: 'compact_cropped' }}"
+                                        align="left"
+                                        width="60"
+                                        height="60"
+                                        class="order-list__product-image" />
+                                    {% endif %}
+                                  </td>
+                                  <td class="order-list__product-description-cell">
+                                    {% assign line_display = line_item.quantity %}
+
+                                    <span class="order-list__item-title">{{ line_item.title }}&nbsp;&times;&nbsp;{{ line_display }}</span><br/>
+
+                                    {% if line_item.variant_title != 'Default Title' %}
+                                      <span class="order-list__item-variant">{{ line_item.variant_title }}</span><br/>
+                                    {% endif %}
+
+                                    {% if line_item.discount_allocations %}
+                                      {% for discount_allocation in line_item.discount_allocations %}
+                                        <span class="order-list__item-discount-allocation">
+                                          <img
+                                            src="{{ 'notifications/discounttag.png' | shopify_asset_url }}"
+                                            width="18"
+                                            height="18"
+                                            class="discount-tag-icon" />
+                                          <span>
+                                            {{ discount_allocation.discount_application.title | upcase }}
+                                            (-{{ discount_allocation.amount | money }})
+                                          </span>
+                                        </span>
+                                      {% endfor %}
+                                    {% endif %}
+                                  </td>
+
+                                  <td class="order-list__price-cell">
+                                    {% if line_item.original_line_price != line_item.final_line_price %}
+                                      <del class="order-list__item-original-price">{{ line_item.original_line_price | money }}</del>
+                                    {% endif %}
+                                    <p class="order-list__item-price">
+                                      {% if line_item.final_line_price > 0 %}
+                                        {{ line_item.final_line_price | money }}
+                                      {% else %}
+                                        無料
+                                      {% endif %}
+                                    </p>
+                                  </td>
+                                </table>
+                              </td>
+                            </tr>
+                          {% endfor %}
+                        </table>
+
+
+                      </td>
+                    </tr>
+                  </table>
+                </center>
+              </td>
+            </tr>
+          </table>
+          {% if public_file_url != blank and public_file_url.size > 0 %}
+            <table class="row section">
+              <tr>
+                <td class="section__cell">
+                  <center>
+                    <table class="container">
+                      <tr>
+                        <td>
+                          <h3>手順</h3>
+                        </td>
+                      </tr>
+                    </table>
+                    <table class="container">
+                      <tr>
+                        <td>
+
+                          <ol class="return-approved__instructions">
+                            <li class="return-approved__instruction-step">返品するアイテムを梱包します。</li>
+                            <li class="return-approved__instruction-step">返品用ラベルを印刷して、パッケージに貼り付けます。古い配送ラベルは覆うか、剥がしてください。</li>
+                            <li class="return-approved__instruction-step">
+                              {% if return_delivery_first.carrier_name %}
+                                {{ return_delivery_first.carrier_name }}でパッケージを受け取る。
+                              {% else %}
+                                ラベルに記載された配送業者にパッケージを渡します。
+                              {% endif %}
+                            </li>
+                            {% if return_delivery_first.type == 'manual' %}
+                              <li class="return-approved__instruction-step">間違いなく返品されるように返品を追跡します。</li>
+                            {% endif %}
+                          </ol>
+                          {% if return_delivery_first.type == 'manual' %}
+                            <p class="return-approved__tracking-number">
+                              {% if return_delivery_first.carrier_name %}
+                                {{ return_delivery_first.carrier_name }}の追跡番号:
+                                <a target="_blank" href="{{ return_delivery_first.tracking_url }}">{{ return_delivery_first.tracking_number }}</a>
+                              {% else %}
+                                追跡番号:
+                                <a target="_blank" href="{{ return_delivery_first.tracking_url }}">{{ return_delivery_first.tracking_number }}</a>
+                              {% endif %}
+                            </p>
+                          {% endif %}
+
+                        </td>
+                      </tr>
+                    </table>
+                  </center>
+                </td>
+              </tr>
+            </table>
+          {% endif %}
+          <table class="row footer">
+            <tr>
+              <td class="footer__cell">
+                <center>
+                  <table class="container">
+                    <tr>
+                      <td>
+
+                        <p class="disclaimer__subtext">ご不明な点がございましたら、このメールにご返信いただくか、<a href="mailto:{{ shop.email }}">{{ shop.email }}</a>までご連絡ください。</p>
+                      </td>
+                    </tr>
+                  </table>
+                </center>
+              </td>
+            </tr>
+          </table>
+
+          <img
+            src="{{ 'notifications/spacer.png' | shopify_asset_url }}"
+            class="spacer"
+            height="1" />
+
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

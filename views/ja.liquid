@@ -5,10 +5,7 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>Shopify Notifications</title>
-    <link
-      rel='stylesheet'
-      href='https://unpkg.com/@shopify/polaris@9.21.1/build/esm/styles.css'
-    >
+    <link rel='stylesheet' href='https://unpkg.com/@shopify/polaris@9.21.1/build/esm/styles.css'>
     <link rel='stylesheet' href='/top.css'>
   </head>
   <body class='Top-Body'>
@@ -18,25 +15,33 @@
         data-polaris-layer='true'
         data-polaris-top-bar='true'
         id='AppFrameTopBar'
-        style='width: 100%;'
-      >
+        style='width: 100%;'>
         <div class='Polaris-TopBar'>
           <div class='Polaris-TopBar__LogoContainer'>
             <h1>
-              <a class='Polaris-TopBar__LogoLink' href='/' data-polaris-unstyled='true'>Shopify Notifications</a>
+              <a
+                class='Polaris-TopBar__LogoLink'
+                href='/'
+                data-polaris-unstyled='true'>Shopify Notifications</a>
             </h1>
           </div>
           <div class='Polaris-TopBar-Menu TopBar__Menu'>
             <div class='Top-lang--pc'>
               <ul class='Top-lang__List'>
-                <li class='Top-lang__List-item'><a class='Top-lang__List-link' href='/'>English</a></li>
-                <li class='Top-lang__List-item'><a class='Top-lang__List-link is-active' href='/ja/'>日本語</a></li>
+                <li class='Top-lang__List-item'>
+                  <a class='Top-lang__List-link' href='/'>English</a>
+                </li>
+                <li class='Top-lang__List-item'>
+                  <a class='Top-lang__List-link is-active' href='/ja/'>日本語</a>
+                </li>
               </ul>
             </div>
             <details class='Top-lang--sp Top-lang__Drawer'>
               <summary class='Top-lang__summary'>Language</summary>
               <ul class='Top-lang__DrawerList'>
-                <li class='Top-lang__DrawerList-item'><a class='Top-lang__DrawerList-link' href='/'>English</a></li>
+                <li class='Top-lang__DrawerList-item'>
+                  <a class='Top-lang__DrawerList-link' href='/'>English</a>
+                </li>
                 <li class='Top-lang__DrawerList-item'>
                   <a class='Top-lang__DrawerList-link is-active' href='/ja/'>日本語</a>
                 </li>
@@ -45,7 +50,10 @@
           </div>
         </div>
       </header>
-      <main class='Polaris-Frame__Main' id='AppFrameMain' data-has-global-ribbon='false'>
+      <main
+        class='Polaris-Frame__Main'
+        id='AppFrameMain'
+        data-has-global-ribbon='false'>
         <div class='Polaris-Page Polaris-Page--fullWidth'>
           <section class='Polaris-Page__Content'>
             <h2 class='Polaris-Header-Title'>メールテンプレート</h2>
@@ -133,20 +141,6 @@
                     {% if returnsItem.title_ja %}
                       <li class='Polaris-List__Item'>
                         <a class='Polaris-Link' href='{{returnsItem.path}}-ja/'>{{ returnsItem.title_ja }}</a>
-                      </li>
-                    {% endif %}
-                  {% endfor %}
-                </ul>
-              </div>
-              <div class='Polaris-Layout__Section Polaris-Layout__Section--oneHal'>
-                <h3 class='Polaris-Header-Title__SubTitle'>スタッフ注文通知</h3>
-                <ul class='Polaris-List'>
-                  {% for staffOrderNotificationsItem in staffOrderNotificationsList %}
-                    {% if staffOrderNotificationsItem.title_ja %}
-                      <li class='Polaris-List__Item'>
-                        <a class='Polaris-Link' href='{{staffOrderNotificationsItem.path}}-ja/'>
-                          {{- staffOrderNotificationsItem.title_ja -}}
-                        </a>
                       </li>
                     {% endif %}
                   {% endfor %}
