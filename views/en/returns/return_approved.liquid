@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
   {%- assign return_delivery_first = return.deliveries | first -%}
   {%- assign public_file_url = return_delivery_first.return_label.public_file_url -%}
   {% if order.customer_order_url %}
@@ -9,12 +9,13 @@
   {% endif %}
   <head>
     <title>{{ email_title }}</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width">
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+    <meta name='viewport' content='width=device-width'>
     <link
-      rel="stylesheet"
-      type="text/css"
-      href="/assets/notifications/styles.css">
+      rel='stylesheet'
+      type='text/css'
+      href='/assets/notifications/styles.css'
+    >
     <style>
       .button__cell {
         background: {{ shop.email_accent_color }}
@@ -31,120 +32,124 @@
   </head>
 
   <body>
-    <table class="body">
+    <table class='body'>
       <tr>
         <td>
-          <table class="header row">
+          <table class='header row'>
             <tr>
-              <td class="header__cell">
+              <td class='header__cell'>
                 <center>
-
-                  <table class="container">
+                  <table class='container'>
                     <tr>
                       <td>
-
-                        <table class="row">
+                        <table class='row'>
                           <tr>
-                            <td class="shop-name__cell">
+                            <td class='shop-name__cell'>
                               {%- if shop.email_logo_url %}
                                 <img
-                                  src="{{shop.email_logo_url}}"
-                                  alt="{{ shop.name }}"
-                                  width="{{ shop.email_logo_width }}">
+                                  src='{{shop.email_logo_url}}'
+                                  alt='{{ shop.name }}'
+                                  width='{{ shop.email_logo_width }}'
+                                >
                               {%- else %}
-                                <h1 class="shop-name__text">
-                                  <a href="{{shop.url}}">{{ shop.name }}</a>
+                                <h1 class='shop-name__text'>
+                                  <a href='{{shop.url}}'>{{ shop.name }}</a>
                                 </h1>
                               {%- endif %}
                             </td>
 
-                            <td class="order-number__cell">
-                              <span class="order-number__text">
-                                Order {{ order.name }}
-                              </span>
+                            <td class='order-number__cell'>
+                              <span class='order-number__text'> Order {{ order.name }} </span>
                             </td>
                           </tr>
                         </table>
-
                       </td>
                     </tr>
                   </table>
-
                 </center>
               </td>
             </tr>
           </table>
 
-          <table class="row content">
+          <table class='row content'>
             <tr>
-              <td class="content__cell">
+              <td class='content__cell'>
                 <center>
-                  <table class="container">
+                  <table class='container'>
                     <tr>
                       <td>
-
                         <h2>Your return was approved</h2>
-                        <p class="return-approved__body">
+                        <p class='return-approved__body'>
                           {% if return_delivery_first.type == 'manual' %}
-                            We sent you a return shipping label, or you will receive one soon. Once you receive your return shipping label, follow the instructions to complete your return.
+                            We sent you a return shipping label, or you will receive one soon. Once you receive your
+                            return shipping label, follow the instructions to complete your return.
                           {% elsif return_delivery_first.type == 'shopify_label' %}
                             {% if public_file_url != blank and public_file_url.size > 0 %}
-                              Print your return shipping label and attach it to the package containing your return items.
+                              Print your return shipping label and attach it to the package containing your return
+                              items.
                             {% else %}
-                              We sent you a return shipping label, or you will receive one soon. Once you receive your return shipping label, follow the instructions to complete your return.
+                              We sent you a return shipping label, or you will receive one soon. Once you receive your
+                              return shipping label, follow the instructions to complete your return.
                             {% endif %}
                           {% else %}
                             We will send you additional information to complete the return.
                           {% endif %}
                         </p>
                         {% if return_delivery_first.type == 'shopify_label' and public_file_url != blank and public_file_url.size > 0 %}
-                          <table class="row actions">
+                          <table class='row actions'>
                             <tr>
-                              <td class="empty-line">&nbsp;</td>
+                              <td class='empty-line'>&nbsp;</td>
                             </tr>
                             <tr>
-                              <td class="actions__cell">
-                                <table class="button main-action-cell">
+                              <td class='actions__cell'>
+                                <table class='button main-action-cell'>
                                   <tr>
-                                    <td class="button__cell">
+                                    <td class='button__cell'>
                                       <a
-                                        attr-link="{{ public_file_url }}"
-                                        href="{{ public_file_url }}"
-                                        class="button__text">Print shipping label</a>
+                                        attr-link='{{ public_file_url }}'
+                                        href='{{ public_file_url }}'
+                                        class='button__text'
+                                        >Print shipping label</a
+                                      >
                                     </td>
                                   </tr>
                                 </table>
-                                <table class="actions__cell">
+                                <table class='actions__cell'>
                                   <tr>
-                                    <td class="button__cell">
-                                      <a href="{{ order_details_url }}" class="button__text return__main-button">View your order</a>
+                                    <td class='button__cell'>
+                                      <a
+                                        href='{{ order_details_url }}'
+                                        class='button__text return__main-button'
+                                        >View your order</a
+                                      >
                                     </td>
                                   </tr>
                                 </table>
                               </td>
                             </tr>
                           </table>
-
                         {% else %}
-                          <table class="row actions">
+                          <table class='row actions'>
                             <tr>
-                              <td class="empty-line">&nbsp;</td>
+                              <td class='empty-line'>&nbsp;</td>
                             </tr>
                             <tr>
-                              <td class="actions__cell">
-                                <table class="button main-action-cell">
+                              <td class='actions__cell'>
+                                <table class='button main-action-cell'>
                                   <tr>
-                                    <td class="button__cell">
-                                      <a href="{{ order_details_url }}" class="button__text return__main-button">View your order</a>
+                                    <td class='button__cell'>
+                                      <a
+                                        href='{{ order_details_url }}'
+                                        class='button__text return__main-button'
+                                        >View your order</a
+                                      >
                                     </td>
                                   </tr>
                                 </table>
                               </td>
                             </tr>
                           </table>
-
                         {% endif %}
-
                       </td>
                     </tr>
                   </table>
@@ -152,53 +157,56 @@
               </td>
             </tr>
           </table>
-          <table class="row section">
+          <table class='row section'>
             <tr>
-              <td class="section__cell">
+              <td class='section__cell'>
                 <center>
-                  <table class="container">
+                  <table class='container'>
                     <tr>
                       <td>
                         <h3>Return summary</h3>
                       </td>
                     </tr>
                   </table>
-                  <table class="container">
+                  <table class='container'>
                     <tr>
                       <td>
-
-                        <table class="row">
+                        <table class='row'>
                           {% for line_item in return.line_items %}
-                            <tr class="order-list__item">
-                              <td class="order-list__item__cell">
+                            <tr class='order-list__item'>
+                              <td class='order-list__item__cell'>
                                 <table>
                                   <td>
                                     {% if line_item.image %}
                                       <img
-                                        src="{{ line_item | img_url: 'compact_cropped' }}"
-                                        align="left"
-                                        width="60"
-                                        height="60"
-                                        class="order-list__product-image" />
+                                        src='{{ line_item | img_url: 'compact_cropped' }}'
+                                        align='left'
+                                        width='60'
+                                        height='60'
+                                        class='order-list__product-image'
+                                      >
                                     {% endif %}
                                   </td>
-                                  <td class="order-list__product-description-cell">
+                                  <td class='order-list__product-description-cell'>
                                     {% assign line_display = line_item.quantity %}
 
-                                    <span class="order-list__item-title">{{ line_item.title }}&nbsp;&times;&nbsp;{{ line_display }}</span><br/>
+                                    <span class='order-list__item-title'>
+                                      {{- line_item.title }}&nbsp;&times;&nbsp;{{ line_display -}}</span
+                                    ><br>
 
                                     {% if line_item.variant_title != 'Default Title' %}
-                                      <span class="order-list__item-variant">{{ line_item.variant_title }}</span><br/>
+                                      <span class='order-list__item-variant'>{{ line_item.variant_title }}</span><br>
                                     {% endif %}
 
                                     {% if line_item.discount_allocations %}
                                       {% for discount_allocation in line_item.discount_allocations %}
-                                        <span class="order-list__item-discount-allocation">
+                                        <span class='order-list__item-discount-allocation'>
                                           <img
-                                            src="{{ 'notifications/discounttag.png' | shopify_asset_url }}"
-                                            width="18"
-                                            height="18"
-                                            class="discount-tag-icon" />
+                                            src='{{ 'notifications/discounttag.png' | shopify_asset_url }}'
+                                            width='18'
+                                            height='18'
+                                            class='discount-tag-icon'
+                                          >
                                           <span>
                                             {{ discount_allocation.discount_application.title | upcase }}
                                             (-{{ discount_allocation.amount | money }})
@@ -208,11 +216,13 @@
                                     {% endif %}
                                   </td>
 
-                                  <td class="order-list__price-cell">
+                                  <td class='order-list__price-cell'>
                                     {% if line_item.original_line_price != line_item.final_line_price %}
-                                      <del class="order-list__item-original-price">{{ line_item.original_line_price | money }}</del>
+                                      <del class='order-list__item-original-price'>
+                                        {{- line_item.original_line_price | money -}}
+                                      </del>
                                     {% endif %}
-                                    <p class="order-list__item-price">
+                                    <p class='order-list__item-price'>
                                       {% if line_item.final_line_price > 0 %}
                                         {{ line_item.final_line_price | money }}
                                       {% else %}
@@ -225,8 +235,6 @@
                             </tr>
                           {% endfor %}
                         </table>
-
-
                       </td>
                     </tr>
                   </table>
@@ -235,25 +243,27 @@
             </tr>
           </table>
           {% if public_file_url != blank and public_file_url.size > 0 %}
-            <table class="row section">
+            <table class='row section'>
               <tr>
-                <td class="section__cell">
+                <td class='section__cell'>
                   <center>
-                    <table class="container">
+                    <table class='container'>
                       <tr>
                         <td>
                           <h3>Instructions</h3>
                         </td>
                       </tr>
                     </table>
-                    <table class="container">
+                    <table class='container'>
                       <tr>
                         <td>
-
-                          <ol class="return-approved__instructions">
-                            <li class="return-approved__instruction-step">Pack the items you're returning.</li>
-                            <li class="return-approved__instruction-step">Print your return label and attach it to the package. Cover or remove any old shipping labels.</li>
-                            <li class="return-approved__instruction-step">
+                          <ol class='return-approved__instructions'>
+                            <li class='return-approved__instruction-step'>Pack the items you're returning.</li>
+                            <li class='return-approved__instruction-step'>
+                              Print your return label and attach it to the package. Cover or remove any old shipping
+                              labels.
+                            </li>
+                            <li class='return-approved__instruction-step'>
                               {% if return_delivery_first.carrier_name %}
                                 Give the package to {{ return_delivery_first.carrier_name }}.
                               {% else %}
@@ -261,21 +271,26 @@
                               {% endif %}
                             </li>
                             {% if return_delivery_first.type == 'manual' %}
-                              <li class="return-approved__instruction-step">Track your return to make sure we get it.</li>
+                              <li class='return-approved__instruction-step'>
+                                Track your return to make sure we get it.
+                              </li>
                             {% endif %}
                           </ol>
                           {% if return_delivery_first.type == 'manual' %}
-                            <p class="return-approved__tracking-number">
+                            <p class='return-approved__tracking-number'>
                               {% if return_delivery_first.carrier_name %}
                                 {{ return_delivery_first.carrier_name }} tracking number:
-                                <a target="_blank" href="{{ return_delivery_first.tracking_url }}">{{ return_delivery_first.tracking_number }}</a>
+                                <a target='_blank' href='{{ return_delivery_first.tracking_url }}'>
+                                  {{- return_delivery_first.tracking_number -}}
+                                </a>
                               {% else %}
                                 %Tracking number:
-                                <a target="_blank" href="{{ return_delivery_first.tracking_url }}">{{ return_delivery_first.tracking_number }}</a>
+                                <a target='_blank' href='{{ return_delivery_first.tracking_url }}'>
+                                  {{- return_delivery_first.tracking_number -}}
+                                </a>
                               {% endif %}
                             </p>
                           {% endif %}
-
                         </td>
                       </tr>
                     </table>
@@ -284,16 +299,16 @@
               </tr>
             </table>
           {% endif %}
-          <table class="row footer">
+          <table class='row footer'>
             <tr>
-              <td class="footer__cell">
+              <td class='footer__cell'>
                 <center>
-                  <table class="container">
+                  <table class='container'>
                     <tr>
                       <td>
-
-                        <p class="disclaimer__subtext">If you have any questions, reply to this email or contact us at
-                          <a href="mailto:{{ shop.email }}">{{ shop.email }}</a>
+                        <p class='disclaimer__subtext'>
+                          If you have any questions, reply to this email or contact us at
+                          <a href='mailto:{{ shop.email }}'>{{ shop.email }}</a>
                         </p>
                       </td>
                     </tr>
@@ -304,10 +319,10 @@
           </table>
 
           <img
-            src="{{ 'notifications/spacer.png' | shopify_asset_url }}"
-            class="spacer"
-            height="1" />
-
+            src='{{ 'notifications/spacer.png' | shopify_asset_url }}'
+            class='spacer'
+            height='1'
+          >
         </td>
       </tr>
     </table>
