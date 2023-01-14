@@ -16,9 +16,9 @@ const emailMarketingList = linkList.filter(
   (item) => item.category === 'email_marketing',
 );
 const returnsList = linkList.filter((item) => item.category === 'returns');
-const staffOrderNotificationsList = linkList.filter(
-  (item) => item.category === 'staff_order_notifications',
-);
+// const staffOrderNotificationsList = linkList.filter(
+//   (item) => item.category === 'staff_order_notifications',
+// );
 const listObject = {
   ordersList: ordersList,
   shippingList: shippingList,
@@ -27,7 +27,7 @@ const listObject = {
   customerList: customerList,
   emailMarketingList: emailMarketingList,
   returnsList: returnsList,
-  staffOrderNotificationsList: staffOrderNotificationsList,
+  // staffOrderNotificationsList: staffOrderNotificationsList,
 };
 
 router.get('/', (_req, res) => {
@@ -78,8 +78,8 @@ router.get('/shipping/:name', (req, res) => {
 });
 
 // Staff order notifications
-router.get('/staff-order-notifications/:name', (req, res) => {
-  res.render(req.params.name, emailEnv);
-});
+// router.get('/staff-order-notifications/:name', (req, res) => {
+//   res.render(req.params.name, emailEnv);
+// });
 
 export { router };
