@@ -13,9 +13,7 @@
  |
  */
 module.exports = {
-    "ui": {
-        "port": 3001
-    },
+    "ui": false,
     "files": ["./views/**/*.liquid"],
     "watchEvents": [
         "change"
