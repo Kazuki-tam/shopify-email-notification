@@ -1,6 +1,6 @@
 const ItemArray = [
   {
-    // image: "",
+    image: '/assets/product/product_cropped_img.jpg',
     product: {
       title: 'Aviator sunglasses',
     },
@@ -14,7 +14,7 @@ const ItemArray = [
     title: 'Aviator sunglasses',
   },
   {
-    // image: "",
+    // image: "https://cdn.shopify.com/s/files/*.jpg",
     product: {
       title: 'Mid-century lounger ',
     },
@@ -245,4 +245,4 @@ const emailEnv = {
   },
 };
 
-export { emailEnv };
+export { emailEnv, ItemArray };
