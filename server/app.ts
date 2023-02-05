@@ -9,9 +9,11 @@ import { paymentIconPngUrl } from './filters/paymentIconPngUrl';
 import { money } from './filters/money';
 import { moneyWithCurrency } from './filters/moneyWithCurrency';
 import { moneyWithoutTrailingZeros } from './filters/moneyWithoutTrailingZeros';
+import { imgUrl } from './filters/imgUrl';
 import { shopCurrency, shopLocale } from './constants/shopEnv';
 
 import type { Address } from './types/address';
+import type { ProductType } from './types/product';
 
 const app: express.Express = express();
 
@@ -50,6 +52,7 @@ engine.registerFilter('format_address', (address: Address) =>
 engine.registerFilter('shopify_asset_url', (url: string) =>
   shopifyAssetUrl(url),
 );
+engine.registerFilter('img_url', (item: ProductType | string) => imgUrl(item));
 engine.registerFilter('cdn_asset_url', (url: string) => cdnAssetUrl(url));
 engine.registerFilter('payment_icon_png_url', (payment: string) =>
   paymentIconPngUrl(payment),
