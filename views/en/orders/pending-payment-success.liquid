@@ -4,7 +4,7 @@
   action.
 {% endcapture %}
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang='en'>
   <head>
     <title>{{ email_title }}</title>
@@ -115,7 +115,7 @@
             </tr>
           </table>
 
-          {% assign gift_card_line_item = line_items | where: "gift_card" %}
+          {% assign gift_card_line_item = line_items | where: 'gift_card' %}
           {% if gift_card_line_item.first %}
             <table class='row section'>
               <tr>
@@ -355,14 +355,14 @@
                               {% assign transaction_size = 0 %}
                               {% assign transaction_amount = 0 %}
                               {% for transaction in transactions %}
-                                {% unless transaction.kind == "capture" or transaction.kind == "void" %}
+                                {% unless transaction.kind == 'capture' or transaction.kind == 'void' %}
                                   {% assign transaction_size = transaction_size | plus: 1 %}
                                   {% assign transaction_amount = transaction_amount | plus: transaction.amount %}
                                 {% endunless %}
                               {% endfor %}
                               <table class='row subtotal-table subtotal-table--total'>
                                 {% if payment_terms %}
-                                  {% assign due_at_date = payment_terms.next_payment.due_at | date: "%b %d, %Y" %}
+                                  {% assign due_at_date = payment_terms.next_payment.due_at | date: '%b %d, %Y' %}
 
                                   <tr class='subtotal-line'>
                                     <td class='subtotal-line__title'>
@@ -420,7 +420,10 @@
                                     </tr>
 
                                     {% for transaction in transactions %}
-                                      {% if transaction.status == "success" and transaction.kind == "authorization" or transaction.kind == "sale" %}
+                                      {% if transaction.status == 'success'
+                                        and transaction.kind == 'authorization'
+                                        or transaction.kind == 'sale'
+                                      %}
                                         {% if transaction.payment_details.credit_card_company %}
                                           {% capture transaction_name -%}
                                             {{- transaction.payment_details.credit_card_company }} (ending in
@@ -521,8 +524,8 @@
                               <td class='customer-info__item'>
                                 <h4>Payment method</h4>
                                 {% for transaction in transactions %}
-                                  {% if transaction.status == "success" or transaction.status == "pending" %}
-                                    {% if transaction.kind == "authorization" or transaction.kind == "sale" %}
+                                  {% if transaction.status == 'success' or transaction.status == 'pending' %}
+                                    {% if transaction.kind == 'authorization' or transaction.kind == 'sale' %}
                                       {% if transaction.payment_details.credit_card_company %}
                                         <p class='customer-info__item-content'>
                                           <img
@@ -537,7 +540,7 @@
                                             <strong>{{ transaction.amount | money }}</strong></span
                                           >
                                         </p>
-                                      {% elsif transaction.gateway_display_name == "Gift card" %}
+                                      {% elsif transaction.gateway_display_name == 'Gift card' %}
                                         <p class='customer-info__item-content'>
                                           <img
                                             src='{{ transaction.gateway_display_name | downcase | replace: ' ', '-'  | payment_type_img_url }}'

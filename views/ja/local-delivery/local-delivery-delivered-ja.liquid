@@ -3,7 +3,7 @@
   まだご注文を受け取っていない場合は<a href='mailto:{{ shop.email }}'>お知らせください</a>。
 {% endcapture %}
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang='ja'>
   <head>
     <title>{{ email_title }}</title>
@@ -112,7 +112,10 @@
                         {% if fulfillment.tracking_numbers.size > 0 %}
                           <p class='disclaimer__subtext'>
                             <br>
-                            {% if fulfillment.tracking_numbers.size == 1 and fulfillment.tracking_company and fulfillment.tracking_url %}
+                            {% if fulfillment.tracking_numbers.size == 1
+                              and fulfillment.tracking_company
+                              and fulfillment.tracking_url
+                            %}
                               {{ fulfillment.tracking_company }} 追跡番号:
                               <a href='{{ fulfillment.tracking_url }}'>{{ fulfillment.tracking_numbers.first }}</a>
                             {% elsif fulfillment.tracking_numbers.size == 1 %}

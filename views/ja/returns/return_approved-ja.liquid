@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang='ja'>
   {%- assign return_delivery_first = return.deliveries | first -%}
   {%- assign public_file_url = return_delivery_first.return_label.public_file_url -%}
@@ -92,7 +92,10 @@
                             返品を完了するための追加情報を送信します。
                           {% endif %}
                         </p>
-                        {% if return_delivery_first.type == 'shopify_label' and public_file_url != blank and public_file_url.size > 0 %}
+                        {% if return_delivery_first.type == 'shopify_label'
+                          and public_file_url != blank
+                          and public_file_url.size > 0
+                        %}
                           <table class='row actions'>
                             <tr>
                               <td class='empty-line'>&nbsp;</td>

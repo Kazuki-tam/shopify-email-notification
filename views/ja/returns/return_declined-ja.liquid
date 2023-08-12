@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang='ja'>
   {% if order.customer_order_url %}
     {%- assign order_details_url = order.customer_order_url -%}
@@ -77,17 +77,17 @@
                     <tr>
                       <td>
                         <h2>返品リクエストが拒否されました</h2>
-                        {% if return.decline["note"] != blank %}
+                        {% if return.decline.note != blank %}
                           <p class='return-requested__body'>{{ return.decline.note }}</p>
-                        {% elsif return.decline["reason"] == 'return_period_ended' %}
+                        {% elsif return.decline.reason == 'return_period_ended' %}
                           <p class='return-requested__body'>
                             返品ポリシーの期間制限内に返品されたアイテムのみを受け付けているため、返品リクエストが拒否されました。
                           </p>
-                        {% elsif return.decline["reason"] == 'final_sale' %}
+                        {% elsif return.decline.reason == 'final_sale' %}
                           <p class='return-requested__body'>
                             最終セール商品の返品を受け付けることはできないため、返品リクエストが拒否されました。
                           </p>
-                        {% elsif return.decline["reason"] == 'other' %}
+                        {% elsif return.decline.reason == 'other' %}
                           <p class='return-requested__body'>
                             アイテムは返品対象外であるため、返品リクエストが拒否されました。
                           </p>

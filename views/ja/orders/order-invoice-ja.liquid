@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang='ja'>
   <head>
     <title>{{ email_title }}</title>
@@ -58,10 +58,10 @@
                   <table class='container'>
                     <tr>
                       <td>
-                        {% if payment_terms.type == 'receipt' and payment_terms.next_payment.due_at == nil %}
+                        {% if payment_terms.type == 'receipt' and payment_terms.next_payment.due_at == null %}
                           {% assign due_date = 'now' %}
                         {% else %}
-                          {% assign due_date = payment_terms.next_payment.due_at | default: nil %}
+                          {% assign due_date = payment_terms.next_payment.due_at | default: null %}
                         {% endif %}
                         <h2>
                           {{ order.total_outstanding | money }}の支払い期日は{{ due_date | date: format: 'date' }}です

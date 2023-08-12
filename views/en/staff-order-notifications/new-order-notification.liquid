@@ -1,7 +1,7 @@
 {% capture email_title %}
   Security check
 {% endcapture %}
-<!DOCTYPE html>
+<!doctype html>
 <html lang='en'>
   <head>
     <title>{{ email_title }}</title>
@@ -97,8 +97,8 @@
                                       <table class='row'>
                                         <tr>
                                           <td>
-                                            {% assign current_date = date | date: "%b %d" %}
-                                            {% assign current_time = date | date: "%l:%M %P" %}
+                                            {% assign current_date = date | date: '%b %d' %}
+                                            {% assign current_time = date | date: '%l:%M %P' %}
                                             {% if customer.name %}
                                               {{ customer.name }} placed order {{ name }} on {{ current_date }} at
                                               {{ current_time | strip }}.
@@ -221,7 +221,7 @@
                                                     <span class='order-list__item-variant'>SKU: {{ line.sku }}</span>
                                                   {% endif %}
 
-                                                  {% if line.selling_plan_allocation != nil %}
+                                                  {% if line.selling_plan_allocation != null %}
                                                     <p class='order-list__item-variant'>
                                                       {{ line.selling_plan_allocation.selling_plan.name }}
                                                     </p>

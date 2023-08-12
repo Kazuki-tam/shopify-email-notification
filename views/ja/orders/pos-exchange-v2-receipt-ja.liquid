@@ -1,6 +1,6 @@
 {% capture email_title %}交換されたアイテム {% endcapture %}
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang='ja'>
   <head>
     <title>{{ email_title }}</title>
@@ -464,7 +464,7 @@
                       <td>
                         {% assign transaction_count = transactions | size %}
                         <h4>
-                          {% if exchange_type == "net_refundable" %}
+                          {% if exchange_type == 'net_refundable' %}
                             返金方法
                           {% else %}
                             決済方法
@@ -472,7 +472,7 @@
                         </h4>
                         {% if transaction_count > 0 %}
                           {% for transaction in transactions %}
-                            {% if transaction.status == "success" or transaction.status == "pending" %}
+                            {% if transaction.status == 'success' or transaction.status == 'pending' %}
                               {% if transaction.payment_details.credit_card_company %}
                                 <p class='customer-info__item-content'>
                                   <img
@@ -486,7 +486,7 @@
                                     <strong>{{ transaction.amount | money }}</strong></span
                                   >
                                 </p>
-                              {% elsif transaction.gateway_display_name == "Gift card" %}
+                              {% elsif transaction.gateway_display_name == 'Gift card' %}
                                 <p class='customer-info__item-content'>
                                   <img
                                     src='{{ transaction.gateway_display_name | downcase | replace: ' ', '-'  | payment_type_img_url }}'

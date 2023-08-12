@@ -9,7 +9,7 @@
   Total amount refunded: <strong>{{ amount | money_with_currency }}</strong>
 {%- endcapture %}
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang='en'>
   <head>
     <title>{{ email_title }}</title>
@@ -293,14 +293,14 @@
                               {% assign transaction_size = 0 %}
                               {% assign transaction_amount = 0 %}
                               {% for transaction in transactions %}
-                                {% unless transaction.kind == "capture" or transaction.kind == "void" %}
+                                {% unless transaction.kind == 'capture' or transaction.kind == 'void' %}
                                   {% assign transaction_size = transaction_size | plus: 1 %}
                                   {% assign transaction_amount = transaction_amount | plus: transaction.amount %}
                                 {% endunless %}
                               {% endfor %}
                               <table class='row subtotal-table subtotal-table--total'>
                                 {% if payment_terms %}
-                                  {% assign due_at_date = payment_terms.next_payment.due_at | date: "%b %d, %Y" %}
+                                  {% assign due_at_date = payment_terms.next_payment.due_at | date: '%b %d, %Y' %}
 
                                   <tr class='subtotal-line'>
                                     <td class='subtotal-line__title'>
@@ -358,7 +358,10 @@
                                     </tr>
 
                                     {% for transaction in transactions %}
-                                      {% if transaction.status == "success" and transaction.kind == "authorization" or transaction.kind == "sale" %}
+                                      {% if transaction.status == 'success'
+                                        and transaction.kind == 'authorization'
+                                        or transaction.kind == 'sale'
+                                      %}
                                         {% if transaction.payment_details.credit_card_company %}
                                           {% capture transaction_name -%}
                                             {{- transaction.payment_details.credit_card_company }} (ending in
