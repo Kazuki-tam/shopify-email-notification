@@ -1,6 +1,6 @@
 {% capture email_title %}{% endcapture %}
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang='ja'>
   <head>
     <title>{{ email_title }}</title>
@@ -57,7 +57,7 @@
                     <tr>
                       <td>
                         <h2>{{ email_title }}</h2>
-                        {% if exchange_type == "balance_owed_to_customer" %}
+                        {% if exchange_type == 'balance_owed_to_customer' %}
                           <h3>返金合計: {{ exchange_balance | money }}</h3>
                         {% endif %}
                       </td>
@@ -517,7 +517,7 @@
                                 </tr>
                               </table>
                               <table class='row subtotal-table subtotal-table--total'>
-                                {% if exchange_type == "balance_owed_to_customer" %}
+                                {% if exchange_type == 'balance_owed_to_customer' %}
                                   <tr class='subtotal-line'>
                                     <td class='subtotal-line__title'>
                                       <p>

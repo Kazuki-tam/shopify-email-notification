@@ -33,7 +33,7 @@
   Estimated delivery date: <strong>{{ fulfillment.estimated_delivery_at | date: format: 'date' }}</strong>
 {%- endcapture %}
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang='en'>
   <head>
     <title>{{ email_title }}</title>
@@ -142,7 +142,10 @@
                         {% if fulfillment.tracking_numbers.size > 0 %}
                           <p class='disclaimer__subtext'>
                             <br>
-                            {% if fulfillment.tracking_numbers.size == 1 and fulfillment.tracking_company and fulfillment.tracking_url %}
+                            {% if fulfillment.tracking_numbers.size == 1
+                              and fulfillment.tracking_company
+                              and fulfillment.tracking_url
+                            %}
                               {{ fulfillment.tracking_company }} tracking number:
                               <a href='{{ fulfillment.tracking_url }}'>{{ fulfillment.tracking_numbers.first }}</a>
                             {% elsif fulfillment.tracking_numbers.size == 1 %}

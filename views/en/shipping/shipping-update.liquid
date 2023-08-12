@@ -1,7 +1,7 @@
 {% capture email_title %}Your shipping status has been updated{% endcapture %}
 {% capture email_body %}The following items have been updated with new shipping information.{% endcapture %}
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang='en'>
   <head>
     <title>{{ email_title }}</title>
@@ -108,7 +108,10 @@
                         {% if fulfillment.tracking_numbers.size > 0 %}
                           <p class='disclaimer__subtext'>
                             <br>
-                            {% if fulfillment.tracking_numbers.size == 1 and fulfillment.tracking_company and fulfillment.tracking_url %}
+                            {% if fulfillment.tracking_numbers.size == 1
+                              and fulfillment.tracking_company
+                              and fulfillment.tracking_url
+                            %}
                               {{ fulfillment.tracking_company }} tracking number:
                               <a href='{{ fulfillment.tracking_url }}'>{{ fulfillment.tracking_numbers.first }}</a>
                             {% elsif fulfillment.tracking_numbers.size == 1 %}

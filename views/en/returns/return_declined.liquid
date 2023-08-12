@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang='en'>
   {% if order.customer_order_url %}
     {%- assign order_details_url = order.customer_order_url -%}
@@ -77,18 +77,18 @@
                     <tr>
                       <td>
                         <h2>Your return request was declined</h2>
-                        {% if return.decline["note"] != blank %}
+                        {% if return.decline.note != blank %}
                           <p class='return-requested__body'>{{ return.decline.note }}</p>
-                        {% elsif return.decline["reason"] == 'return_period_ended' %}
+                        {% elsif return.decline.reason == 'return_period_ended' %}
                           <p class='return-requested__body'>
                             Your return request was declined because we only accept items that are returned within the
                             time limit of our return policy.
                           </p>
-                        {% elsif return.decline["reason"] == 'final_sale' %}
+                        {% elsif return.decline.reason == 'final_sale' %}
                           <p class='return-requested__body'>
                             Your return request was declined because we don't accept returns of final sale items.
                           </p>
-                        {% elsif return.decline["reason"] == 'other' %}
+                        {% elsif return.decline.reason == 'other' %}
                           <p class='return-requested__body'>
                             Your return request was declined because the item was not eligible to be returned.
                           </p>

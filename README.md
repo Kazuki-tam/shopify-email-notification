@@ -6,7 +6,7 @@ shopify-email-notification is a template repository for email notifications.
 
 [![Release (latest by date)](https://img.shields.io/github/v/release/Kazuki-tam/shopify-email-notification)](https://github.com/Kazuki-tam/shopify-email-notification/releases/tag/v0.0.1)
 [![Issues](https://img.shields.io/github/issues/Kazuki-tam/shopify-email-notification)](https://github.com/Kazuki-tam/shopify-email-notification/issues)
-![Maintenance](https://img.shields.io/maintenance/yes/2022)
+![Maintenance](https://img.shields.io/maintenance/yes/2023)
 ![Release date](https://img.shields.io/github/release-date/Kazuki-tam/shopify-email-notification)
 
 ## Features
@@ -21,7 +21,7 @@ shopify-email-notification is a template repository for email notifications.
 - Built in useful commands
 
 ## Requirements
-- [Node v16.17.0 or higher](https://nodejs.org/en/)
+- [Node v16 or higher](https://nodejs.org/en/)
 - [Shopify store](https://shopify.dev/themes/tools/development-stores#create-a-development-store-for-a-client)
 
 ## Main dependencies
@@ -135,14 +135,6 @@ Open returns notification pages.
 
 ```bash
 yarn returns
-```
-
-### Staff order notifications command
-
-Open staff order notification pages.
-
-```bash
-yarn staffOrderNotifications
 ```
 
 ### Format command

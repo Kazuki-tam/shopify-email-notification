@@ -1,7 +1,7 @@
 {% capture email_title %}
   セキュリティチェック
 {% endcapture %}
-<!DOCTYPE html>
+<!doctype html>
 <html lang='ja'>
   <head>
     <title>{{ email_title }}</title>
@@ -95,8 +95,8 @@
                                       <table class='row'>
                                         <tr>
                                           <td>
-                                            {% assign current_date = date | date: "%b %d" %}
-                                            {% assign current_time = date | date: "%l:%M %P" %}
+                                            {% assign current_date = date | date: '%b %d' %}
+                                            {% assign current_time = date | date: '%l:%M %P' %}
                                             {% if customer.name %}
                                               {{ customer.name }}が{{ current_date }}の{{ current_time | strip }}に、
                                               {{- name -}}
@@ -219,7 +219,7 @@
                                                     <span class='order-list__item-variant'>SKU: {{ line.sku }}</span>
                                                   {% endif %}
 
-                                                  {% if line.selling_plan_allocation != nil %}
+                                                  {% if line.selling_plan_allocation != null %}
                                                     <p class='order-list__item-variant'>
                                                       {{ line.selling_plan_allocation.selling_plan.name }}
                                                     </p>

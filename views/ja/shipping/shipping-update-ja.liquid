@@ -1,7 +1,7 @@
 {% capture email_title %}配送状況が更新されました{% endcapture %}
 {% capture email_body %}以下の商品は新しい配送情報に更新されています。{% endcapture %}
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang='ja'>
   <head>
     <title>{{ email_title }}</title>
@@ -110,7 +110,10 @@
                         {% if fulfillment.tracking_numbers.size > 0 %}
                           <p class='disclaimer__subtext'>
                             <br>
-                            {% if fulfillment.tracking_numbers.size == 1 and fulfillment.tracking_company and fulfillment.tracking_url %}
+                            {% if fulfillment.tracking_numbers.size == 1
+                              and fulfillment.tracking_company
+                              and fulfillment.tracking_url
+                            %}
                               {{ fulfillment.tracking_company }} 追跡番号:
                               <a href='{{ fulfillment.tracking_url }}'>{{ fulfillment.tracking_numbers.first }}</a>
                             {% elsif fulfillment.tracking_numbers.size == 1 %}
