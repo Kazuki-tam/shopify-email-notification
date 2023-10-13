@@ -4,3 +4,4 @@
 *.config.js
 *.config.ts
 .eslintrc.js
+tsconfig.json
