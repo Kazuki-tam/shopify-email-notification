@@ -21,12 +21,12 @@ shopify-email-notification is a template repository for email notifications.
 - Built in useful commands
 
 ## Requirements
-- [Node v16 or higher](https://nodejs.org/en/)
+- [Node v18 or higher](https://nodejs.org/en/)
 - [Shopify store](https://shopify.dev/themes/tools/development-stores#create-a-development-store-for-a-client)
 
 ## Main dependencies
 
-- [Yarn](https://yarnpkg.com/)
+- [pnpm](https://pnpm.io/ja/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [Express](https://expressjs.com/)
 - [LiquidJS](https://liquidjs.com/index.html)
@@ -39,7 +39,7 @@ shopify-email-notification is a template repository for email notifications.
 Clone this repository and install dependencies.
 
 ```bash
-yarn install
+pnpm install
 ```
 
 ### Create a .env file
@@ -70,7 +70,7 @@ Recommend you to check out these commands before you get started.
 Start your project in development mode.
 
 ```bash
-yarn start
+pnpm start
 ```
 
 ### Admin command
@@ -78,7 +78,7 @@ yarn start
 Open Shopify admin.
 
 ```bash
-yarn admin
+pnpm admin
 ```
 
 ### Orders command
@@ -86,7 +86,7 @@ yarn admin
 Open order notification pages.
 
 ```bash
-yarn orders
+pnpm orders
 ```
 
 ### Shipping command
@@ -94,7 +94,7 @@ yarn orders
 Open shipping notification pages.
 
 ```bash
-yarn shipping
+pnpm shipping
 ```
 
 ### Local delivery command
@@ -102,7 +102,7 @@ yarn shipping
 Open local delivery notification pages.
 
 ```bash
-yarn localDelivery
+pnpm localDelivery
 ```
 
 ### Local pickup command
@@ -110,7 +110,7 @@ yarn localDelivery
 Open local pickup notification pages.
 
 ```bash
-yarn localPickup
+pnpm localPickup
 ```
 
 ### Customer command
@@ -118,7 +118,7 @@ yarn localPickup
 Open customer notification pages.
 
 ```bash
-yarn customer
+pnpm customer
 ```
 
 ### Email marketing command
@@ -126,7 +126,7 @@ yarn customer
 Open email marketing notification pages.
 
 ```bash
-yarn emailMarketing
+pnpm emailMarketing
 ```
 
 ### Returns command
@@ -134,7 +134,7 @@ yarn emailMarketing
 Open returns notification pages.
 
 ```bash
-yarn returns
+pnpm returns
 ```
 
 ### Format command
@@ -142,7 +142,7 @@ yarn returns
 Format this project code.
 
 ```bash
-yarn format
+pnpm format
 ```
 
 ### Lint command
@@ -150,13 +150,13 @@ yarn format
 Lint this project code.
 
 ```bash
-yarn lint
+pnpm lint
 ```
 
 Fix this project code.
 
 ```bash
-yarn lint:fix
+pnpm lint:fix
 ```
 
 ### PostInstall command
@@ -164,7 +164,7 @@ yarn lint:fix
 Install missing TypeScript typings.
 
 ```bash
-yarn postInstall
+pnpm postInstall
 ```
 
 </details>

@@ -1,6 +1,6 @@
 {
   "name": "shopify-email-notification",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "shopify-email-notification is a template repository for email notifications.",
   "author": "Kazuki Yonemoto (https://dev.to/tim_yone)",
   "license": "MIT",
@@ -69,9 +69,9 @@
     "@types/eslint": "^8.44.2",
     "@types/express": "^4.17.17",
     "@types/jest": "^29.5.3",
+    "@types/node": "^20.8.5",
     "@types/nodemon": "^1.19.2",
     "@types/opener": "^1.4.0",
-    "@types/prettier": "^3.0.0",
     "@typescript-eslint/eslint-plugin": "^6.3.0",
     "@typescript-eslint/parser": "^6.3.0",
     "browser-sync": "^2.29.3",
@@ -90,6 +90,6 @@
   },
   "dependencies": {
     "express": "^4.18.2",
-    "liquidjs": "^10.8.4"
+    "liquidjs": "^10.9.2"
   }
 }
