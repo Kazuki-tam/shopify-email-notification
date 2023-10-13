@@ -90,6 +90,6 @@
   },
   "dependencies": {
     "express": "^4.18.2",
-    "liquidjs": "^10.8.4"
+    "liquidjs": "^10.9.2"
   }
 }

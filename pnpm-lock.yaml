@@ -9,7 +9,7 @@ dependencies:
     specifier: ^4.18.2
     version: 4.18.2
   liquidjs:
-    specifier: ^10.8.4
+    specifier: ^10.9.2
     version: 10.9.2
 
 devDependencies:
