@@ -53,7 +53,7 @@ ADMIN_URL=https://your-shop-name.myshopify.com/admin/
 Start your project in development mode.
 
 ```
-yarn start
+pnpm start
 ```
 
 Open `http://localhost:4000`, and then you can preview notification templates.
