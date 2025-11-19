@@ -5,6 +5,7 @@
   "author": "Kazuki Yonemoto (https://dev.to/tim_yone)",
   "license": "MIT",
   "scripts": {
+    "dev": "npm-run-all --parallel 'start:*'",
     "start": "npm-run-all --parallel 'start:*'",
     "start:nodemon": "nodemon",
     "start:sync": "browser-sync start --config bs-config.js",
@@ -64,32 +65,34 @@
     "postInstall": "typesync"
   },
   "devDependencies": {
-    "@shopify/prettier-plugin-liquid": "^1.4.4",
-    "@types/browser-sync": "^2.29.0",
-    "@types/eslint": "^8.44.2",
-    "@types/express": "^4.17.21",
-    "@types/jest": "^29.5.3",
-    "@types/node": "^20.11.30",
-    "@types/nodemon": "^1.19.6",
+    "@shopify/prettier-plugin-liquid": "^1.10.0",
+    "@types/browser-sync": "^2.29.1",
+    "@types/eslint": "^9.6.1",
+    "@types/express": "^5.0.5",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^24.10.1",
+    "@types/nodemon": "^3.1.1",
     "@types/opener": "^1.4.3",
-    "@typescript-eslint/eslint-plugin": "^6.3.0",
-    "@typescript-eslint/parser": "^6.3.0",
-    "browser-sync": "^2.29.3",
-    "dotenv": "^16.4.5",
-    "eslint": "^8.47.0",
-    "eslint-plugin-jest": "^27.2.3",
-    "jest": "^29.6.2",
-    "nodemon": "^3.1.0",
+    "@typescript-eslint/eslint-plugin": "^8.47.0",
+    "@typescript-eslint/parser": "^8.47.0",
+    "browser-sync": "^3.0.4",
+    "dotenv": "^17.2.3",
+    "eslint": "^9.39.1",
+    "eslint-plugin-jest": "^29.1.0",
+    "globals": "^16.5.0",
+    "jest": "^29.7.0",
+    "nodemon": "^3.1.11",
     "npm-run-all": "^4.1.5",
     "opener": "^1.5.2",
-    "prettier": "^3.0.1",
-    "ts-jest": "^29.1.1",
+    "prettier": "^3.6.2",
+    "ts-jest": "^29.4.5",
     "ts-node": "^10.9.2",
-    "typescript": "^4.9.5",
-    "typesync": "^0.11.1"
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.47.0",
+    "typesync": "^0.14.3"
   },
   "dependencies": {
-    "express": "^4.19.1",
-    "liquidjs": "^10.10.2"
+    "express": "^5.1.0",
+    "liquidjs": "^10.24.0"
   }
 }
