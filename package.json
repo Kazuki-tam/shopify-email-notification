@@ -71,7 +71,6 @@
     "@types/express": "^5.0.5",
     "@types/jest": "^29.5.14",
     "@types/node": "^24.10.1",
-    "@types/nodemon": "^3.1.1",
     "@types/opener": "^1.4.3",
     "@typescript-eslint/eslint-plugin": "^8.47.0",
     "@typescript-eslint/parser": "^8.47.0",
@@ -93,6 +92,6 @@
   },
   "dependencies": {
     "express": "^5.1.0",
-    "liquidjs": "^10.24.0"
+    "liquidjs": "^10.27.0"
   }
 }
