@@ -4,9 +4,9 @@ shopify-email-notification is a template repository for email notifications.
 
 ## Status
 
-[![Release (latest by date)](https://img.shields.io/github/v/release/Kazuki-tam/shopify-email-notification)](https://github.com/Kazuki-tam/shopify-email-notification/releases/tag/v0.0.1)
+[![Release (latest by date)](https://img.shields.io/github/v/release/Kazuki-tam/shopify-email-notification)](https://github.com/Kazuki-tam/shopify-email-notification/releases/latest)
 [![Issues](https://img.shields.io/github/issues/Kazuki-tam/shopify-email-notification)](https://github.com/Kazuki-tam/shopify-email-notification/issues)
-![Maintenance](https://img.shields.io/maintenance/yes/2023)
+![Maintenance](https://img.shields.io/maintenance/yes/2026)
 ![Release date](https://img.shields.io/github/release-date/Kazuki-tam/shopify-email-notification)
 
 ## Features
@@ -21,7 +21,7 @@ shopify-email-notification is a template repository for email notifications.
 - Built in useful commands
 
 ## Requirements
-- [Node v18 or higher](https://nodejs.org/en/)
+- [Node v22.13 or higher](https://nodejs.org/en/)
 - [Shopify store](https://shopify.dev/themes/tools/development-stores#create-a-development-store-for-a-client)
 
 ## Main dependencies
